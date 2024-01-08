@@ -12,7 +12,7 @@ export const StoreProvider: React.FC<PropsWithChildren<WidgetConfigProps>> = ({
   config,
 }) => {
   return (
-    <BookmarkStoreProvider>
+    <BookmarkStoreProvider namePrefix={config?.keyPrefix}>
       <FormStoreProvider>
         <SplitSubvariantStoreProvider
           state={
