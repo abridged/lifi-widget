@@ -1,5 +1,5 @@
 {
-  "name": "@lifi/wallet-management",
+  "name": "@collabland/lifi-wallet-management",
   "version": "3.0.0-alpha.8",
   "description": "LI.FI Wallet Management solution.",
   "type": "module",

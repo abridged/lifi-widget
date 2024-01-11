@@ -1,4 +1,4 @@
-import { isWalletInstalled } from '@lifi/wallet-management';
+import { isWalletInstalled } from '@collabland/lifi-wallet-management';
 import type { Theme } from '@mui/material';
 import {
   Button,

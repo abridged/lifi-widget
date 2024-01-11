@@ -1,4 +1,4 @@
-import { WidgetEvent, useWidgetEvents } from '@lifi/widget';
+import { WidgetEvent, useWidgetEvents } from '@collabland/lifi-widget';
 import { useCallback } from 'react';
 import { useWidgetConfig } from '../../providers';
 import type { FormType } from '../../stores';

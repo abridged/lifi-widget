@@ -1,4 +1,4 @@
-import { NFT } from '@lifi/widget';
+import { NFT } from '@collabland/lifi-widget';
 import { Box, Typography } from '@mui/material';
 import type { NFTOpenSeaProps } from './types';
 import { useOpenSeaFulfillment } from './useOpenSeaFulfillment';

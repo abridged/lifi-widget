@@ -1,5 +1,5 @@
 import { ChainId } from '@lifi/sdk';
-import type { WidgetConfig } from '@lifi/widget';
+import type { WidgetConfig } from '@collabland/lifi-widget';
 import './fonts/inter.css';
 import './index.css';
 

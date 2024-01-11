@@ -1,4 +1,4 @@
-import { getWalletPriority } from '@lifi/wallet-management';
+import { getWalletPriority } from '@collabland/lifi-wallet-management';
 import type { Wallet } from '@solana/wallet-adapter-react';
 import type { Connector } from 'wagmi';
 

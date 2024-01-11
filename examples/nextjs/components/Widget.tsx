@@ -1,4 +1,4 @@
-import { LiFiWidget } from '@lifi/widget';
+import { LiFiWidget } from '@collabland/lifi-widget';
 import { WidgetEvents } from './WidgetEvents';
 
 export const Widget = () => {

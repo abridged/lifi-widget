@@ -2981,9 +2981,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lifi/wallet-management@npm:^2.5.2":
+"@collabland/lifi-wallet-management@npm:^2.5.2":
   version: 2.5.2
-  resolution: "@lifi/wallet-management@npm:2.5.2"
+  resolution: "@collabland/lifi-wallet-management@npm:2.5.2"
   dependencies:
     "@coinbase/wallet-sdk": "npm:^3.7.2"
     "@cyberlab/cyber-account": "npm:^2.0.2"
@@ -3002,9 +3002,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lifi/widget@npm:^2.9.5":
+"@collabland/lifi-widget@npm:^2.9.5":
   version: 2.9.5
-  resolution: "@lifi/widget@npm:2.9.5"
+  resolution: "@collabland/lifi-widget@npm:2.9.5"
   dependencies:
     "@emotion/react": "npm:^11.11.1"
     "@emotion/styled": "npm:^11.11.0"
@@ -3013,7 +3013,7 @@ __metadata:
     "@ethersproject/experimental": "npm:^5.7.0"
     "@ethersproject/providers": "npm:^5.7.2"
     "@lifi/sdk": "npm:^2.4.3"
-    "@lifi/wallet-management": "npm:^2.5.2"
+    "@collabland/lifi-wallet-management": "npm:^2.5.2"
     "@mui/icons-material": "npm:^5.14.14"
     "@mui/lab": "npm:^5.0.0-alpha.149"
     "@mui/material": "npm:^5.14.14"
@@ -6946,7 +6946,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "create-react-app@workspace:."
   dependencies:
-    "@lifi/widget": "npm:^2.9.5"
+    "@collabland/lifi-widget": "npm:^2.9.5"
     "@testing-library/jest-dom": "npm:^6.1.5"
     "@testing-library/react": "npm:^14.1.2"
     "@testing-library/user-event": "npm:^14.5.1"

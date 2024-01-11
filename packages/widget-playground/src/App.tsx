@@ -2,8 +2,8 @@ import type {
   WidgetDrawer,
   WidgetSubvariant,
   WidgetVariant,
-} from '@lifi/widget';
-import { LiFiWidget } from '@lifi/widget';
+} from '@collabland/lifi-widget';
+import { LiFiWidget } from '@collabland/lifi-widget';
 import {
   Box,
   Checkbox,

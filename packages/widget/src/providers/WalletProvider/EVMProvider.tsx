@@ -26,7 +26,7 @@ import {
   trust,
   walletConnect,
   xdefi,
-} from '@lifi/wallet-management';
+} from '@collabland/lifi-wallet-management';
 import { useContext, useMemo, type FC, type PropsWithChildren } from 'react';
 import type { Chain } from 'viem';
 import { createClient } from 'viem';

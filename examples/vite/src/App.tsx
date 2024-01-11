@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import type { WidgetConfig } from '@lifi/widget';
-import { LiFiWidget } from '@lifi/widget';
+import type { WidgetConfig } from '@collabland/lifi-widget';
+import { LiFiWidget } from '@collabland/lifi-widget';
 import { Box } from '@mui/material';
 import { useMemo } from 'react';
 import { useConnect, useDisconnect } from 'wagmi';
