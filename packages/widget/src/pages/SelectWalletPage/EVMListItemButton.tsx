@@ -1,5 +1,5 @@
 import { ChainType } from '@lifi/sdk';
-import { getWalletIcon, isWalletInstalledAsync } from '@lifi/wallet-management';
+import { getWalletIcon, isWalletInstalledAsync } from '@collabland/lifi-wallet-management';
 import { Avatar, ListItemAvatar } from '@mui/material';
 import type { Connector } from 'wagmi';
 import { useConnect, useDisconnect } from 'wagmi';

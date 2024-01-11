@@ -1,5 +1,5 @@
 import type { ChainId, TokenAmount } from '@lifi/sdk';
-import { NFTBase } from '@lifi/widget';
+import { NFTBase } from '@collabland/lifi-widget';
 import type { NFTNetwork, NFTOpenSeaProps } from './types';
 import { ChainId as OpenSeaChainId } from './types';
 import { useOpenSeaOrder } from './useOpenSeaOrder';

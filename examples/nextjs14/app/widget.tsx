@@ -1,5 +1,5 @@
 'use client';
-import { LiFiWidget } from '@lifi/widget';
+import { LiFiWidget } from '@collabland/lifi-widget';
 import { useEffect, useState } from 'react';
 
 export function Widget() {

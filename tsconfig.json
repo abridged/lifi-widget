@@ -22,16 +22,16 @@
     "composite": true,
     "baseUrl": "./",
     "paths": {
-      "@lifi/wallet-management": [
+      "@collabland/lifi-wallet-management": [
         "./packages/wallet-management/src"
       ],
-      "@lifi/wallet-management/*": [
+      "@collabland/lifi-wallet-management/*": [
         "./packages/wallet-management/src/*"
       ],
-      "@lifi/widget": [
+      "@collabland/lifi-widget": [
         "./packages/widget/src"
       ],
-      "@lifi/widget/*": [
+      "@collabland/lifi-widget/*": [
         "./packages/widget/src/*"
       ],
     }

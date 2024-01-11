@@ -5,7 +5,7 @@
 <script lang="ts">
 import { applyPureReactInVue } from 'veaury';
 // This is a React component
-import { LiFiWidget } from '@lifi/widget';
+import { LiFiWidget } from '@collabland/lifi-widget';
 
 export default {
   components: {

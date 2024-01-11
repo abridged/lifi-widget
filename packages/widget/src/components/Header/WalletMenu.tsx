@@ -1,5 +1,5 @@
 import { ChainType } from '@lifi/sdk';
-import { getWalletIcon } from '@lifi/wallet-management';
+import { getWalletIcon } from '@collabland/lifi-wallet-management';
 import ContentCopyIcon from '@mui/icons-material/ContentCopyRounded';
 import OpenInNewIcon from '@mui/icons-material/OpenInNewRounded';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNewRounded';
