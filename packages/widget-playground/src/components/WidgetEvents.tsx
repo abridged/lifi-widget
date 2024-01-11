@@ -2,8 +2,8 @@ import type { Route } from '@lifi/sdk';
 import type {
   RouteExecutionUpdate,
   RouteHighValueLossUpdate,
-} from '@lifi/widget';
-import { WidgetEvent, useWidgetEvents } from '@lifi/widget';
+} from '@collabland/lifi-widget';
+import { WidgetEvent, useWidgetEvents } from '@collabland/lifi-widget';
 import { useEffect } from 'react';
 
 export const WidgetEvents = () => {

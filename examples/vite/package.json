@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@ethersproject/providers": "^5.7.2",
-    "@lifi/widget": "^2.9.5",
+    "@collabland/lifi-widget": "^2.9.5",
     "@mui/material": "^5.15.0",
     "events": "^3.3.0",
     "react": "^18.2.0",

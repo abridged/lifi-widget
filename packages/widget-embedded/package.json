@@ -1,5 +1,5 @@
 {
-  "name": "@lifi/widget-embedded",
+  "name": "@collabland/lifi-widget-embedded",
   "version": "1.0.169",
   "type": "module",
   "scripts": {
@@ -24,11 +24,11 @@
   },
   "author": "Eugene Chybisov <eugene@li.finance>",
   "dependencies": {
+    "@collabland/lifi-wallet-management": "^3.0.0-alpha.10",
+    "@collabland/lifi-widget": "^3.0.0-alpha.16",
     "@ethersproject/abstract-signer": "^5.7.0",
     "@ethersproject/providers": "^5.7.2",
     "@lifi/sdk": "^3.0.0-alpha.48",
-    "@lifi/wallet-management": "^3.0.0-alpha.10",
-    "@lifi/widget": "^3.0.0-alpha.16",
     "@mui/icons-material": "^5.15.4",
     "@mui/lab": "^5.0.0-alpha.160",
     "@mui/material": "^5.15.4",

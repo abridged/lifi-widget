@@ -1,4 +1,4 @@
-import { LiFiWidget } from '@lifi/widget';
+import { LiFiWidget } from '@collabland/lifi-widget';
 import { Box, CssBaseline } from '@mui/material';
 import type { NFTNetwork } from './components/NFTOpenSea';
 import {

@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  transpilePackages: ['@lifi/widget', '@lifi/wallet-management'],
+  transpilePackages: ['@collabland/lifi-widget', '@collabland/lifi-wallet-management'],
 };
 
 module.exports = nextConfig;

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-default-export */
-import { LiFiWidget } from '@lifi/widget';
+import { LiFiWidget } from '@collabland/lifi-widget';
 import type { HeadFC } from 'gatsby';
 import * as React from 'react';
 

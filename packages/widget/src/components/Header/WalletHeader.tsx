@@ -1,4 +1,4 @@
-import { getWalletIcon } from '@lifi/wallet-management';
+import { getWalletIcon } from '@collabland/lifi-wallet-management';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import WalletIcon from '@mui/icons-material/Wallet';
 import { Avatar, Badge } from '@mui/material';

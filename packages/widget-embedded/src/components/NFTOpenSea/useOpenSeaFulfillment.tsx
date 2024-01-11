@@ -1,7 +1,7 @@
 import { Web3Provider } from '@ethersproject/providers';
 import type { ChainId, TokenAmount } from '@lifi/sdk';
-import type { NFTProps } from '@lifi/widget';
-import { useAccount, useFieldValues } from '@lifi/widget';
+import type { NFTProps } from '@collabland/lifi-widget';
+import { useAccount, useFieldValues } from '@collabland/lifi-widget';
 import { Seaport } from '@opensea/seaport-js';
 import { useQuery } from '@tanstack/react-query';
 import type { Connector } from 'wagmi';
