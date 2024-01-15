@@ -1,7 +1,8 @@
 {
   "npmClient": "yarn",
   "packages": [
-    "packages/*"
+    "packages/*",
+    "examples/nextjs"
   ],
   "ignoreChanges": [
     "**/*.md"
