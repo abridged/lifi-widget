@@ -15,15 +15,15 @@ export const metaMask = /*@__PURE__*/ injected({
   },
 }); // _metaMask();
 
-export const walletConnect = /*@__PURE__*/ _walletConnect({
-  projectId: '5432e3507d41270bee46b7b85bbc2ef8',
-  showQrModal: true,
-  qrModalOptions: {
-    themeVariables: {
-      '--w3m-z-index': '3000',
-    },
-  },
-});
+// export const walletConnect = /*@__PURE__*/ _walletConnect({
+//   projectId: '5432e3507d41270bee46b7b85bbc2ef8',
+//   showQrModal: true,
+//   qrModalOptions: {
+//     themeVariables: {
+//       '--w3m-z-index': '3000',
+//     },
+//   },
+// });
 
 export const coinbase: ReturnType<typeof coinbaseWallet> =
   /*@__PURE__*/ coinbaseWallet({
