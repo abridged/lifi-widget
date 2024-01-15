@@ -1838,15 +1838,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@collabland/lifi-wallet-management@npm:^3.0.0-alpha.8, @collabland/lifi-wallet-management@workspace:packages/wallet-management":
+"@collabland/lifi-wallet-management@npm:^3.0.0-alpha.9, @collabland/lifi-wallet-management@workspace:packages/wallet-management":
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-wallet-management@workspace:packages/wallet-management"
   dependencies:
-    "@lifi/sdk": "npm:^3.0.0-alpha.42"
+    "@lifi/sdk": "npm:^3.0.0-alpha.47"
     cpy-cli: "npm:^5.0.0"
     react: "npm:^18.2.0"
     typescript: "npm:^5.3.3"
-    wagmi: "npm:^2.0.0-rc.2"
+    wagmi: "npm:^2.2.1"
   languageName: unknown
   linkType: soft
 
@@ -1854,27 +1854,28 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-widget-embedded@workspace:packages/widget-embedded"
   dependencies:
-    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.8"
+    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.9"
     "@collabland/lifi-widget": "npm:^3.0.0-alpha.12"
     "@ethersproject/abstract-signer": "npm:^5.7.0"
     "@ethersproject/providers": "npm:^5.7.2"
-    "@lifi/sdk": "npm:^3.0.0-alpha.42"
-    "@mui/icons-material": "npm:^5.15.2"
-    "@mui/lab": "npm:^5.0.0-alpha.158"
-    "@mui/material": "npm:^5.15.2"
+    "@lifi/sdk": "npm:^3.0.0-alpha.47"
+    "@lifi/widget": "npm:^3.0.0-alpha.14"
+    "@mui/icons-material": "npm:^5.15.4"
+    "@mui/lab": "npm:^5.0.0-alpha.160"
+    "@mui/material": "npm:^5.15.4"
     "@opensea/seaport-js": "npm:2.0.8"
-    "@tanstack/react-query": "npm:^5.15.0"
+    "@tanstack/react-query": "npm:^5.17.12"
     "@vitejs/plugin-react": "npm:^4.2.1"
     bignumber.js: "npm:^9.1.2"
     ethers: "npm:^5.7.2"
     events: "npm:^3.3.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    react-router-dom: "npm:^6.21.1"
+    react-router-dom: "npm:^6.21.2"
     typescript: "npm:^5.3.3"
-    vite: "npm:^5.0.10"
-    wagmi: "npm:^2.0.0-rc.2"
-    web-vitals: "npm:^3.5.0"
+    vite: "npm:^5.0.11"
+    wagmi: "npm:^2.2.1"
+    web-vitals: "npm:^3.5.1"
   languageName: unknown
   linkType: soft
 
@@ -1882,61 +1883,61 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-widget-playground@workspace:packages/widget-playground"
   dependencies:
-    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.8"
-    "@collabland/lifi-widget": "npm:^3.0.0-alpha.12"
+    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.9"
+    "@collabland/lifi-widget": "npm:^3.0.0-alpha.14"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
-    "@lifi/sdk": "npm:^3.0.0-alpha.42"
-    "@mui/icons-material": "npm:^5.15.2"
-    "@mui/lab": "npm:^5.0.0-alpha.158"
-    "@mui/material": "npm:^5.15.2"
-    "@tanstack/react-query": "npm:^5.15.0"
+    "@lifi/sdk": "npm:^3.0.0-alpha.47"
+    "@mui/icons-material": "npm:^5.15.4"
+    "@mui/lab": "npm:^5.0.0-alpha.160"
+    "@mui/material": "npm:^5.15.4"
+    "@tanstack/react-query": "npm:^5.17.12"
     "@vitejs/plugin-react": "npm:^4.2.1"
     ethers: "npm:^5.7.2"
     events: "npm:^3.3.0"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
-    react-router-dom: "npm:^6.21.1"
+    react-router-dom: "npm:^6.21.2"
     rollup-plugin-polyfill-node: "npm:^0.13.0"
     source-map-explorer: "npm:^2.5.3"
     typescript: "npm:^5.3.3"
-    viem: "npm:^2.0.0-rc.3"
-    vite: "npm:^5.0.10"
-    wagmi: "npm:^2.0.0-rc.2"
-    web-vitals: "npm:^3.5.0"
+    viem: "npm:^2.0.10"
+    vite: "npm:^5.0.11"
+    wagmi: "npm:^2.2.1"
+    web-vitals: "npm:^3.5.1"
   languageName: unknown
   linkType: soft
 
-"@collabland/lifi-widget@npm:^3.0.0-alpha.12, @collabland/lifi-widget@workspace:packages/widget":
+"@collabland/lifi-widget@npm:^3.0.0-alpha.12, @collabland/lifi-widget@npm:^3.0.0-alpha.14, @collabland/lifi-widget@workspace:packages/widget":
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-widget@workspace:packages/widget"
   dependencies:
-    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.8"
+    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.9"
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
-    "@lifi/sdk": "npm:^3.0.0-alpha.42"
-    "@mui/icons-material": "npm:^5.15.2"
-    "@mui/lab": "npm:^5.0.0-alpha.158"
-    "@mui/material": "npm:^5.15.2"
+    "@lifi/sdk": "npm:^3.0.0-alpha.47"
+    "@mui/icons-material": "npm:^5.15.4"
+    "@mui/lab": "npm:^5.0.0-alpha.160"
+    "@mui/material": "npm:^5.15.4"
     "@solana/wallet-adapter-base": "npm:^0.9.23"
     "@solana/wallet-adapter-react": "npm:^0.15.35"
-    "@solana/wallet-adapter-wallets": "npm:^0.19.24"
-    "@solana/web3.js": "npm:^1.87.6"
-    "@tanstack/react-query": "npm:^5.15.0"
+    "@solana/wallet-adapter-wallets": "npm:^0.19.25"
+    "@solana/web3.js": "npm:^1.89.0"
+    "@tanstack/react-query": "npm:^5.17.12"
     "@tanstack/react-virtual": "npm:^3.0.1"
     cpy-cli: "npm:^5.0.0"
-    i18next: "npm:^23.7.11"
+    i18next: "npm:^23.7.16"
     microdiff: "npm:^1.3.2"
     mitt: "npm:^3.0.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-i18next: "npm:^14.0.0"
     react-intersection-observer: "npm:^9.5.3"
-    react-router-dom: "npm:^6.21.1"
+    react-router-dom: "npm:^6.21.2"
     react-timer-hook: "npm:^3.0.7"
     typescript: "npm:^5.3.3"
     uuid: "npm:^9.0.1"
-    viem: "npm:^2.0.0-rc.3"
-    wagmi: "npm:^2.0.0-rc.2"
+    viem: "npm:^2.0.10"
+    wagmi: "npm:^2.2.1"
     zustand: "npm:^4.4.7"
   peerDependencies:
     "@types/react": ^18.0.0
@@ -3219,84 +3220,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lifi/wallet-management@npm:^3.0.0-alpha.10, @lifi/wallet-management@workspace:packages/wallet-management":
-  version: 0.0.0-use.local
-  resolution: "@lifi/wallet-management@workspace:packages/wallet-management"
+"@lifi/wallet-management@npm:^3.0.0-alpha.9":
+  version: 3.0.0-alpha.9
+  resolution: "@lifi/wallet-management@npm:3.0.0-alpha.9"
   dependencies:
-    "@lifi/sdk": "npm:^3.0.0-alpha.48"
-    cpy-cli: "npm:^5.0.0"
+    "@lifi/sdk": "npm:^3.0.0-alpha.47"
     react: "npm:^18.2.0"
-    typescript: "npm:^5.3.3"
     wagmi: "npm:^2.2.1"
-  peerDependencies:
-    "@tanstack/react-query": ^5.0.0
-    viem: ^2.0.0
-  languageName: unknown
-  linkType: soft
+  checksum: 1a841d8648d3d34d7f99faad9c0a3551da6b4721de9a193edecf9fb77a5cbb3d144a41f5ca56da2c585a64d25d5c95671d4c9513224d599eb3adfbca553c0a2a
+  languageName: node
+  linkType: hard
 
-"@lifi/widget-embedded@workspace:packages/widget-embedded":
-  version: 0.0.0-use.local
-  resolution: "@lifi/widget-embedded@workspace:packages/widget-embedded"
-  dependencies:
-    "@ethersproject/abstract-signer": "npm:^5.7.0"
-    "@ethersproject/providers": "npm:^5.7.2"
-    "@lifi/sdk": "npm:^3.0.0-alpha.48"
-    "@lifi/wallet-management": "npm:^3.0.0-alpha.10"
-    "@lifi/widget": "npm:^3.0.0-alpha.16"
-    "@mui/icons-material": "npm:^5.15.4"
-    "@mui/lab": "npm:^5.0.0-alpha.160"
-    "@mui/material": "npm:^5.15.4"
-    "@opensea/seaport-js": "npm:2.0.8"
-    "@tanstack/react-query": "npm:^5.17.14"
-    "@vitejs/plugin-react": "npm:^4.2.1"
-    bignumber.js: "npm:^9.1.2"
-    ethers: "npm:^5.7.2"
-    events: "npm:^3.3.0"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    react-router-dom: "npm:^6.21.2"
-    typescript: "npm:^5.3.3"
-    vite: "npm:^5.0.11"
-    wagmi: "npm:^2.2.1"
-    web-vitals: "npm:^3.5.1"
-  languageName: unknown
-  linkType: soft
-
-"@lifi/widget-playground@workspace:packages/widget-playground":
-  version: 0.0.0-use.local
-  resolution: "@lifi/widget-playground@workspace:packages/widget-playground"
-  dependencies:
-    "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
-    "@lifi/sdk": "npm:^3.0.0-alpha.48"
-    "@lifi/wallet-management": "npm:^3.0.0-alpha.10"
-    "@lifi/widget": "npm:^3.0.0-alpha.16"
-    "@mui/icons-material": "npm:^5.15.4"
-    "@mui/lab": "npm:^5.0.0-alpha.160"
-    "@mui/material": "npm:^5.15.4"
-    "@solana/wallet-adapter-base": "npm:^0.9.23"
-    "@solana/wallet-adapter-react": "npm:^0.15.35"
-    "@solana/wallet-adapter-wallets": "npm:^0.19.25"
-    "@solana/web3.js": "npm:^1.89.1"
-    "@tanstack/react-query": "npm:^5.17.14"
-    "@vitejs/plugin-react": "npm:^4.2.1"
-    ethers: "npm:^5.7.2"
-    events: "npm:^3.3.0"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    react-router-dom: "npm:^6.21.2"
-    rollup-plugin-polyfill-node: "npm:^0.13.0"
-    source-map-explorer: "npm:^2.5.3"
-    typescript: "npm:^5.3.3"
-    viem: "npm:^2.1.1"
-    vite: "npm:^5.0.11"
-    wagmi: "npm:^2.2.1"
-    web-vitals: "npm:^3.5.1"
-  languageName: unknown
-  linkType: soft
-
-"@lifi/widget@npm:^3.0.0-alpha.16, @lifi/widget@workspace:packages/widget":
-  version: 0.0.0-use.local
-  resolution: "@lifi/widget@workspace:packages/widget"
+"@lifi/widget@npm:^3.0.0-alpha.14":
+  version: 3.0.0-alpha.14
+  resolution: "@lifi/widget@npm:3.0.0-alpha.14"
   dependencies:
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
@@ -3311,7 +3248,6 @@ __metadata:
     "@solana/web3.js": "npm:^1.89.1"
     "@tanstack/react-query": "npm:^5.17.14"
     "@tanstack/react-virtual": "npm:^3.0.1"
-    cpy-cli: "npm:^5.0.0"
     i18next: "npm:^23.7.16"
     microdiff: "npm:^1.3.2"
     mitt: "npm:^3.0.1"
@@ -3321,7 +3257,6 @@ __metadata:
     react-intersection-observer: "npm:^9.5.3"
     react-router-dom: "npm:^6.21.2"
     react-timer-hook: "npm:^3.0.7"
-    typescript: "npm:^5.3.3"
     uuid: "npm:^9.0.1"
     viem: "npm:^2.1.1"
     wagmi: "npm:^2.2.1"
@@ -3335,8 +3270,9 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  languageName: unknown
-  linkType: soft
+  checksum: 56bfa5e7c556be6113738eb9cec9af19d5acd55f9eaad3dbfd351190ff8797a4b33c8623c5354e2a197e832bca2d662e406ce34ec1c5009da5026a83d3918e73
+  languageName: node
+  linkType: hard
 
 "@lit-labs/ssr-dom-shim@npm:^1.0.0, @lit-labs/ssr-dom-shim@npm:^1.1.0":
   version: 1.1.2
