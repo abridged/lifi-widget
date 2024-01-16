@@ -49,7 +49,7 @@ export const TokenHoldingsPage: React.FC = () => {
           }}
         />
       ))}
-      {/*<button onClick={handleCardClick}>Bridge</button>*/}
+      <button onClick={handleCardClick}>Bridge</button>
     </TokenHoldingContainer>
   );
 };

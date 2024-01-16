@@ -149,14 +149,14 @@ export const ChainCard: React.FC<ChainCardProps> = ({
                 Submit
               </Button>
             </Box>
-            <Typography
-              color={'#959595'}
-              fontSize={14}
-              fontStyle={'normal'}
-              fontWeight={500}
-            >
-              Estimated Gas Fee: 0.0001 ETH
-            </Typography>
+            {/*<Typography*/}
+            {/*  color={'#959595'}*/}
+            {/*  fontSize={14}*/}
+            {/*  fontStyle={'normal'}*/}
+            {/*  fontWeight={500}*/}
+            {/*>*/}
+            {/*  Estimated Gas Fee: 0.0001 ETH*/}
+            {/*</Typography>*/}
           </Box>
         </AccordionDetails>
       </Accordion>
