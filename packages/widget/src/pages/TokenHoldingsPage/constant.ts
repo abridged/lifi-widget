@@ -1,7 +1,4 @@
-import {
-  Balance,
-  Chain,
-} from '@collabland/lifi-widget/components/ChainCard/types';
+import { Balance, Chain } from '../../components/ChainCard/types';
 
 export const chains: Chain[] = [
   {
