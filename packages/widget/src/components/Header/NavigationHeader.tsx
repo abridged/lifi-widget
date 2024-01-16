@@ -26,7 +26,6 @@ export const NavigationHeader: React.FC = () => {
   const { isConnected } = useAccount();
   const { element, title } = useHeaderStore((state) => state);
   const { pathname } = useLocation();
-
   const cleanedPathname = pathname.endsWith('/')
     ? pathname.slice(0, -1)
     : pathname;
@@ -103,19 +102,23 @@ export const NavigationHeader: React.FC = () => {
             <SplitWalletMenuButton />
           </Box>
         ) : (
-          <Typography
-            fontSize={hasPath ? 18 : 24}
-            align={hasPath ? 'center' : 'left'}
-            fontWeight="700"
-            flex={1}
-            noWrap
-          >
-            {title || handleHeaderTitle()}
-          </Typography>
+          <>
+            {pathname !== navigationRoutes.home && (
+              <Typography
+                fontSize={hasPath ? 18 : 24}
+                align={hasPath ? 'center' : 'left'}
+                fontWeight="700"
+                flex={1}
+                noWrap
+              >
+                {title || handleHeaderTitle()}
+              </Typography>
+            )}
+          </>
         )}
         <Routes>
           <Route
-            path={navigationRoutes.home}
+            path={navigationRoutes.bridgeHome}
             element={
               <HeaderControlsContainer>
                 {isConnected && !hiddenUI?.includes(HiddenUI.History) ? (
