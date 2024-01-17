@@ -16,8 +16,14 @@ export const LoadingIndicator = () => {
         />
       </div> */}
       <div className="flex flex-col pt-80 text-white">
-        <div className="flex flex-col items-center">
-          Grabbing your Telefrens smart account address...{' '}
+        <div
+          style={{
+            textAlign: 'center',
+            width: '100%',
+            fontWeight: 700,
+          }}
+        >
+          Please wait...{' '}
           <svg
             className="animate-spin h-5 w-5 ml-3 bg-yellow-300 mt-2"
             viewBox="0 0 24 24"

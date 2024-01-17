@@ -29,7 +29,7 @@ export const TokenHoldingContainer = styled(Box)(({ theme }) => ({
 
 export const TokenHoldingsPage: React.FC = () => {
   const navigate = useNavigate();
-  const [expanded, setExpanded] = useState<number | undefined>(1);
+  const [expanded, setExpanded] = useState<number | undefined>(42161);
   const [userId, setUserId] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [toSmartAccount, setSmartAccount] = useState<string>();
@@ -45,7 +45,6 @@ export const TokenHoldingsPage: React.FC = () => {
       try {
         const userProfile = await getUserProfile(accessToken);
         const smartAccountRes = await getUserSmartAccount(accessToken);
-        console.log(smartAccountRes);
         const balanceResponse = await getBalance(accessToken, {
           account: smartAccountRes.account,
           assets: chains.map((chain) => {
@@ -54,20 +53,21 @@ export const TokenHoldingsPage: React.FC = () => {
             } as EthereumAsset;
           }),
         });
-        setChainWithBalance(
-          chains.map((chain) => {
-            const balanceObj = balanceResponse.balances.find(
-              (c: Balance) => c.chainId === chain.id,
+        const cwb: Chain[] = [];
+        chains.forEach((chain) => {
+          const balanceObj = balanceResponse.balances.find(
+            (c: Balance) => c.chainId === chain.id,
+          );
+          if (balanceObj && balanceObj.balance !== '0') {
+            chain.nativeToken.balanceInBigInt = balanceObj.balance;
+            chain.nativeToken.balance = formatUnits(
+              BigInt(balanceObj.balance),
+              18,
             );
-            if (balanceObj) {
-              chain.nativeToken.balance = formatUnits(
-                BigInt(balanceObj.balance),
-                18,
-              );
-            }
-            return chain;
-          }),
-        );
+            cwb.push(chain);
+          }
+        }),
+          setChainWithBalance(cwb);
         setUserId(userProfile.id);
         setSmartAccount(smartAccountRes.smartAccount);
         setPkpAddress(smartAccountRes.account);
@@ -256,7 +256,15 @@ export const TokenHoldingsPage: React.FC = () => {
               </Button>
             </TokenHoldingContainer>
           ) : (
-            <div>Connect wallet first</div>
+            <div
+              style={{
+                textAlign: 'center',
+                width: '100%',
+                fontWeight: 700,
+              }}
+            >
+              Connect wallet first
+            </div>
           )}
         </>
       )}

@@ -12,9 +12,9 @@ export const AppExpandedContainer = styled(Box, {
 })<{ variant?: WidgetVariant }>(({ variant }) => ({
   display: 'flex',
   justifyContent: 'center',
-  alignItems: 'start',
+  alignItems: 'middle',
   flex: 1,
-  height: variant === 'drawer' ? 'none' : maxHeight,
+  height: '100vh',
 }));
 
 const RelativeContainer = styled(Box, {
@@ -26,7 +26,8 @@ const RelativeContainer = styled(Box, {
   minWidth: 360,
   maxWidth: 392,
   maxHeight: variant === 'drawer' ? 'none' : maxHeight,
-  background: theme.palette.background.default,
+  // background: theme.palette.background.default,
+  backgroundColor: '#232323',
   overflow: 'auto',
   flex: 1,
   zIndex: 0,

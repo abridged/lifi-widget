@@ -1,4 +1,5 @@
 import { ChainCardProps } from './types';
+import { BigNumber } from 'ethers';
 import {
   AccordionDetails,
   Avatar,
@@ -9,6 +10,7 @@ import {
 } from '@mui/material';
 import { Accordion, AccordionSummary, ChainContainer } from './ChainCard.style';
 import { useState } from 'react';
+import { parseEther } from 'viem';
 
 export const ChainCard: React.FC<ChainCardProps> = ({
   chain,
@@ -17,6 +19,28 @@ export const ChainCard: React.FC<ChainCardProps> = ({
   onSubmit,
 }) => {
   const [value, setValue] = useState<string>('');
+  const [isDirty, setIsDirty] = useState<boolean>(false);
+  const [error, setError] = useState<string | undefined>(undefined);
+  const validate = (val: string) => {
+    if (!val) {
+      setError('Required');
+      return false;
+    }
+    const num = parseFloat(val);
+    if (isNaN(num)) {
+      setError('Amount not valid');
+      return false;
+    }
+    if (
+      chain.nativeToken.balanceInBigInt &&
+      BigNumber.from(chain.nativeToken.balanceInBigInt).lt(parseEther(val))
+    ) {
+      setError('Not enough balance');
+      return false;
+    }
+    setError(undefined);
+    return true;
+  };
   return (
     <ChainContainer>
       <Box
@@ -113,7 +137,7 @@ export const ChainCard: React.FC<ChainCardProps> = ({
           </Box>
         </AccordionSummary>
         <AccordionDetails>
-          <Box display={'flex'} flexDirection={'column'} gap={2}>
+          <Box display={'flex'} flexDirection={'column'}>
             <Box
               justifyContent={'space-between'}
               display={'flex'}
@@ -132,10 +156,14 @@ export const ChainCard: React.FC<ChainCardProps> = ({
                 }}
                 onChange={(event) => {
                   setValue(event.target.value);
+                  if (isDirty) {
+                    validate(event.target.value);
+                  }
                 }}
                 placeholder="Enter Amount"
               />{' '}
               <Button
+                disabled={!!error}
                 style={{
                   borderRadius: '24px',
                   backgroundColor: '#EDC803',
@@ -143,20 +171,27 @@ export const ChainCard: React.FC<ChainCardProps> = ({
                   fontWeight: 700,
                   height: '32px',
                 }}
-                onClick={() => onSubmit(value, chain)}
+                onClick={() => {
+                  setIsDirty(true);
+                  if (validate(value)) {
+                    onSubmit(value, chain);
+                  }
+                }}
                 variant="contained"
               >
                 Submit
               </Button>
             </Box>
-            {/*<Typography*/}
-            {/*  color={'#959595'}*/}
-            {/*  fontSize={14}*/}
-            {/*  fontStyle={'normal'}*/}
-            {/*  fontWeight={500}*/}
-            {/*>*/}
-            {/*  Estimated Gas Fee: 0.0001 ETH*/}
-            {/*</Typography>*/}
+            {error && (
+              <Typography
+                color={'#d90606'}
+                fontSize={14}
+                fontStyle={'normal'}
+                fontWeight={500}
+              >
+                {error}
+              </Typography>
+            )}
           </Box>
         </AccordionDetails>
       </Accordion>

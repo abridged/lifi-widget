@@ -6,6 +6,7 @@ export type Token = {
   image: string;
   decimal?: number;
   balance?: string;
+  balanceInBigInt?: string;
 };
 
 export type Chain = {
