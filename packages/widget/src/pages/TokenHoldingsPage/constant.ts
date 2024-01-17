@@ -3,7 +3,7 @@ import { Balance, Chain } from '../../components/ChainCard/types';
 export const chains: Chain[] = [
   {
     isRecommended: true,
-    id: '42161',
+    id: 42161,
     name: 'Arbitrum',
     chainName: 'arb',
     tokenName: 'ETH',
@@ -15,7 +15,7 @@ export const chains: Chain[] = [
     },
   },
   {
-    id: '1',
+    id: 1,
     name: 'Mainnet',
     chainName: 'eth',
     tokenName: 'ETH',
@@ -27,7 +27,7 @@ export const chains: Chain[] = [
     },
   },
   {
-    id: '137',
+    id: 137,
     name: 'Polygon',
     chainName: 'pol',
     tokenName: 'MATIC',
@@ -39,7 +39,7 @@ export const chains: Chain[] = [
     },
   },
   {
-    id: '10',
+    id: 10,
     name: 'Optimism',
     chainName: 'opt',
     tokenName: 'ETH',

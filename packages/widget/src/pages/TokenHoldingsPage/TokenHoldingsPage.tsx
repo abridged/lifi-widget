@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { navigationRoutes } from '../../utils';
 import { useEffect, useState } from 'react';
 import { balance, chains } from './constant';
@@ -6,13 +6,17 @@ import { ChainCard } from '../../components/ChainCard';
 import { styled } from '@mui/material/styles';
 import { Box, Button } from '@mui/material';
 import { formatUnits } from 'viem';
-import { type Chain } from '../../components/ChainCard/types';
+import {
+  Balance,
+  type Chain,
+  EthereumAsset,
+} from '../../components/ChainCard/types';
 import { useAccount } from '../../hooks';
 // import { Mixpanel } from './mixpanel';
 import { ethers } from 'ethers';
 import { useConfig } from 'wagmi';
 import { getWalletClient, switchChain } from '@wagmi/core';
-import { getUserProfile, getUserSmartAccount } from './apis';
+import { getBalance, getUserProfile, getUserSmartAccount } from './apis';
 import { LoadingIndicator } from './LoadingIndicator';
 
 export const TokenHoldingContainer = styled(Box)(({ theme }) => ({
@@ -25,21 +29,45 @@ export const TokenHoldingContainer = styled(Box)(({ theme }) => ({
 
 export const TokenHoldingsPage: React.FC = () => {
   const navigate = useNavigate();
-  const [expanded, setExpanded] = useState<string | undefined>('1');
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [expanded, setExpanded] = useState<number | undefined>(1);
   const [userId, setUserId] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [toSmartAccount, setSmartAccount] = useState<string>();
+  const [chainWithBalance, setChainWithBalance] = useState<Chain[] | undefined>(
+    undefined,
+  );
   const [pkpAddr, setPkpAddress] = useState<string>();
-  const accessToken = searchParams.get('access_token');
+  const accessToken = localStorage.getItem('accessToken');
   const { account } = useAccount();
   const wagmiConfig = useConfig();
-
   useEffect(() => {
     async function fetchMyAPI(accessToken: string) {
       try {
         const userProfile = await getUserProfile(accessToken);
         const smartAccountRes = await getUserSmartAccount(accessToken);
+        console.log(smartAccountRes);
+        const balanceResponse = await getBalance(accessToken, {
+          account: smartAccountRes.account,
+          assets: chains.map((chain) => {
+            return {
+              chainId: chain.id,
+            } as EthereumAsset;
+          }),
+        });
+        setChainWithBalance(
+          chains.map((chain) => {
+            const balanceObj = balanceResponse.balances.find(
+              (c: Balance) => c.chainId === chain.id,
+            );
+            if (balanceObj) {
+              chain.nativeToken.balance = formatUnits(
+                BigInt(balanceObj.balance),
+                18,
+              );
+            }
+            return chain;
+          }),
+        );
         setUserId(userProfile.id);
         setSmartAccount(smartAccountRes.smartAccount);
         setPkpAddress(smartAccountRes.account);
@@ -71,8 +99,7 @@ export const TokenHoldingsPage: React.FC = () => {
         setIsLoading(false);
       }
     }
-    // FIX: not getting  the token
-    const accessToken = 'OqDZr3Gsyvmg1YkfpxcfJ'; //searchParams.get('access_token');
+
     if (accessToken) {
       fetchMyAPI(accessToken);
     } else {
@@ -81,22 +108,12 @@ export const TokenHoldingsPage: React.FC = () => {
   }, []);
 
   const handleChange =
-    (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
+    (panel: number) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : undefined);
     };
   const handleCardClick = () => {
     navigate(navigationRoutes.bridgeHome);
   };
-
-  const chainWithBalance = chains.map((chain) => {
-    const balanceObj = balance.balances.find(
-      (c) => `${c.chainId}` === chain.id,
-    );
-    if (balanceObj) {
-      chain.nativeToken.balance = formatUnits(BigInt(balanceObj.balance), 18);
-    }
-    return chain;
-  });
 
   const transferFund = async (amount: string, balance?: string) => {
     const currentChain = account.chainId;
@@ -199,7 +216,7 @@ export const TokenHoldingsPage: React.FC = () => {
         <LoadingIndicator />
       ) : (
         <>
-          {account.isConnected ? (
+          {account.isConnected && chainWithBalance ? (
             <TokenHoldingContainer>
               {chainWithBalance.map((chain) => (
                 <ChainCard
@@ -208,7 +225,7 @@ export const TokenHoldingsPage: React.FC = () => {
                   expanded={expanded}
                   handleExpandChange={handleChange}
                   onSubmit={(value, chain) => {
-                    if (chain.id === '42161') {
+                    if (chain.id === 42161) {
                       transferFund(value);
                     } else {
                       // bridge to eoa

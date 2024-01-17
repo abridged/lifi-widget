@@ -10,7 +10,7 @@ export type Token = {
 
 export type Chain = {
   isRecommended?: boolean;
-  id: string;
+  id: number;
   name: string;
   chainName: string;
   tokenName: string;
@@ -27,8 +27,18 @@ export type Balance = {
 export type ChainCardProps = {
   onSubmit: (value: string, chain: Chain) => void;
   chain: Chain;
-  expanded?: string;
+  expanded?: number;
   handleExpandChange: (
-    panel: string,
+    panel: number,
   ) => (event: SyntheticEvent<Element, Event>, expanded: boolean) => void;
+};
+
+export type EthereumAsset = {
+  chainId: number;
+  token?: string;
+};
+
+export type EthereumBalanceRequest = {
+  account: string;
+  assets: EthereumAsset[];
 };
