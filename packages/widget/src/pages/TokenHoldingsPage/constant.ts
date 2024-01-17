@@ -5,6 +5,8 @@ export const chains: Chain[] = [
     isRecommended: true,
     id: '42161',
     name: 'Arbitrum',
+    chainName: 'arb',
+    tokenName: 'ETH',
     image: 'https://icons.llamao.fi/icons/chains/rsz_arbitrum.jpg',
     nativeToken: {
       name: 'Arbitrum ETH',
@@ -15,6 +17,8 @@ export const chains: Chain[] = [
   {
     id: '1',
     name: 'Mainnet',
+    chainName: 'eth',
+    tokenName: 'ETH',
     image: 'https://icons.llamao.fi/icons/chains/rsz_ethereum.jpg',
     nativeToken: {
       name: 'Etherium',
@@ -25,6 +29,8 @@ export const chains: Chain[] = [
   {
     id: '137',
     name: 'Polygon',
+    chainName: 'pol',
+    tokenName: 'MATIC',
     image: 'https://icons.llamao.fi/icons/chains/rsz_polygon.jpg',
     nativeToken: {
       name: 'MATIC',
@@ -35,6 +41,8 @@ export const chains: Chain[] = [
   {
     id: '10',
     name: 'Optimism',
+    chainName: 'opt',
+    tokenName: 'ETH',
     image: 'https://icons.llamao.fi/icons/chains/rsz_optimism.jpg',
     nativeToken: {
       name: 'Optimism ETH',

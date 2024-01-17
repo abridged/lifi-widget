@@ -12,6 +12,8 @@ export type Chain = {
   isRecommended?: boolean;
   id: string;
   name: string;
+  chainName: string;
+  tokenName: string;
   image: string;
   nativeToken: Token;
 };
