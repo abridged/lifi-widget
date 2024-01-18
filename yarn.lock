@@ -1647,7 +1647,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@collabland/lifi-widget@npm:^3.0.0-alpha.12, @collabland/lifi-widget@npm:^3.0.0-alpha.14, @collabland/lifi-widget@workspace:packages/widget":
+"@collabland/lifi-widget@npm:^3.0.0, @collabland/lifi-widget@npm:^3.0.0-alpha.12, @collabland/lifi-widget@workspace:packages/widget":
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-widget@workspace:packages/widget"
   dependencies:
