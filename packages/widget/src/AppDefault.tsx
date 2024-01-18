@@ -18,18 +18,18 @@ export const AppDefault = () => {
   const expandable = useExpandableVariant();
 
   return (
-    <AppExpandedContainer
-      id={createElementId(ElementId.AppExpandedContainer, elementId)}
-    >
-      <AppContainer>
-        <Header />
-        <FlexContainer disableGutters>
-          <AppRoutes />
-        </FlexContainer>
-        <PoweredBy />
-        <Initializer />
-      </AppContainer>
-      {expandable ? <RoutesExpanded /> : null}
-    </AppExpandedContainer>
+    // <AppExpandedContainer
+    //   id={createElementId(ElementId.AppExpandedContainer, elementId)}
+    // >
+    <AppContainer>
+      <Header />
+      <FlexContainer disableGutters>
+        <AppRoutes />
+      </FlexContainer>
+      {/*<PoweredBy />*/}
+      <Initializer />
+    </AppContainer>
+    // {expandable ? <RoutesExpanded /> : null}
+    // </AppExpandedContainer>
   );
 };

@@ -48,6 +48,7 @@
     "viewOnExplorer": "View on explorer"
   },
   "header": {
+    "transferOptions": "Transfer Options",
     "activeTransactions": "Active transactions",
     "bridge": "Bridge",
     "checkout": "Checkout",

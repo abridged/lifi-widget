@@ -1,4 +1,4 @@
-import { ChainCardProps } from './types';
+import { ChainCardProps } from '../../types/types';
 import { BigNumber } from 'ethers';
 import {
   AccordionDetails,
@@ -11,6 +11,7 @@ import {
 import { Accordion, AccordionSummary, ChainContainer } from './ChainCard.style';
 import { useState } from 'react';
 import { parseEther } from 'viem';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 export const ChainCard: React.FC<ChainCardProps> = ({
   chain,
@@ -19,6 +20,7 @@ export const ChainCard: React.FC<ChainCardProps> = ({
   onSubmit,
 }) => {
   const [value, setValue] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const [isDirty, setIsDirty] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>(undefined);
   const validate = (val: string) => {
@@ -27,7 +29,7 @@ export const ChainCard: React.FC<ChainCardProps> = ({
       return false;
     }
     const num = parseFloat(val);
-    if (isNaN(num)) {
+    if (isNaN(num) || num === 0) {
       setError('Amount not valid');
       return false;
     }
@@ -162,25 +164,26 @@ export const ChainCard: React.FC<ChainCardProps> = ({
                 }}
                 placeholder="Enter Amount"
               />{' '}
-              <Button
+              <LoadingButton
                 disabled={!!error}
+                loading={loading}
                 style={{
                   borderRadius: '24px',
-                  backgroundColor: '#EDC803',
-                  color: 'black',
                   fontWeight: 700,
                   height: '32px',
                 }}
-                onClick={() => {
+                onClick={async () => {
                   setIsDirty(true);
                   if (validate(value)) {
-                    onSubmit(value, chain);
+                    setLoading(true);
+                    await onSubmit(value, chain);
+                    setLoading(false);
                   }
                 }}
                 variant="contained"
               >
                 Submit
-              </Button>
+              </LoadingButton>
             </Box>
             {error && (
               <Typography

@@ -1,4 +1,4 @@
-import { Balance, Chain } from '../../components/ChainCard/types';
+import { Balance, Chain } from '../types/types';
 
 export const chains: Chain[] = [
   {

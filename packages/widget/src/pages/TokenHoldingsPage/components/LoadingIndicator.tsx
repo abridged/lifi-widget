@@ -1,3 +1,6 @@
+import { Box } from '@mui/material';
+import React from 'react';
+
 export const LoadingIndicator = () => {
   return (
     <>
@@ -33,3 +36,17 @@ export const LoadingIndicator = () => {
     </>
   );
 };
+
+export const ConnectWalletInfo = () => (
+  <Box
+    display={'flex'}
+    textAlign={'center'}
+    alignItems={'center'}
+    width={'100%'}
+    justifyContent={'center'}
+    height={'100px'}
+    fontWeight={700}
+  >
+    Connect wallet first
+  </Box>
+);

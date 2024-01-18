@@ -14,7 +14,7 @@ export const AppExpandedContainer = styled(Box, {
   justifyContent: 'center',
   alignItems: 'middle',
   flex: 1,
-  height: '100vh',
+  height: '100%',
 }));
 
 const RelativeContainer = styled(Box, {
@@ -50,6 +50,7 @@ const CssBaselineContainer = styled(ScopedCssBaseline, {
 export const FlexContainer = styled(Container)({
   display: 'flex',
   flexDirection: 'column',
+  backgroundColor: '#232323',
   flex: 1,
 });
 

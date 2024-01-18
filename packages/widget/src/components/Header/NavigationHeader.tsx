@@ -36,6 +36,8 @@ export const NavigationHeader: React.FC = () => {
 
   const handleHeaderTitle = () => {
     switch (path) {
+      case navigationRoutes.home:
+        return t(`header.transferOptions`);
       case navigationRoutes.selectWallet:
         return t(`header.selectWallet`);
       case navigationRoutes.settings:
@@ -102,19 +104,16 @@ export const NavigationHeader: React.FC = () => {
             <SplitWalletMenuButton />
           </Box>
         ) : (
-          <>
-            {pathname !== navigationRoutes.home && (
-              <Typography
-                fontSize={hasPath ? 18 : 24}
-                align={hasPath ? 'center' : 'left'}
-                fontWeight="700"
-                flex={1}
-                noWrap
-              >
-                {title || handleHeaderTitle()}
-              </Typography>
-            )}
-          </>
+          <Typography
+            fontSize={24}
+            align={'center'}
+            textAlign={'center'}
+            fontWeight="700"
+            flex={1}
+            noWrap
+          >
+            {title || handleHeaderTitle()}
+          </Typography>
         )}
         <Routes>
           <Route

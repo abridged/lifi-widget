@@ -26,7 +26,7 @@ export type Balance = {
 };
 
 export type ChainCardProps = {
-  onSubmit: (value: string, chain: Chain) => void;
+  onSubmit: (value: string, chain: Chain) => Promise<void>;
   chain: Chain;
   expanded?: number;
   handleExpandChange: (
