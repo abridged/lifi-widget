@@ -62,3 +62,28 @@ export async function transferFund(accessToken: string) {
   const data = await res.json();
   return data;
 }
+
+export async function submitTxWaitJob(
+  accessToken: string,
+  txObj: {
+    txHash: string;
+    fromChain: string;
+    bridge?: string;
+    toChain?: string;
+  },
+) {
+  const res = await fetch(`${apiUrl}/telefrens/lifi-widget/submit`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      accept: 'application/json,',
+      authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(txObj),
+  });
+
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error('Failed to submit tx wait job');
+  }
+}

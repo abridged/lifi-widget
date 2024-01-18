@@ -1,7 +1,13 @@
 import { LiFiWidget, WidgetConfig } from '@collabland/lifi-widget';
+import { useSearchParams } from 'next/navigation';
 import { WidgetEvents } from './WidgetEvents';
 
 export const Widget = () => {
+  const searchParams = useSearchParams();
+  const accessToken = searchParams.get('access_token');
+  if (accessToken) {
+    localStorage.setItem('accessToken', accessToken);
+  }
   const widgetConfig: WidgetConfig = {
     containerStyle: {},
     fromChain: 1,
