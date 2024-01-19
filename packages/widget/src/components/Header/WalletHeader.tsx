@@ -28,7 +28,7 @@ export const WalletHeader: React.FC = () => {
   return !hasExternalProvider &&
     subvariant !== 'split' &&
     !hiddenUI?.includes(HiddenUI.WalletMenu) ? (
-    <HeaderAppBar elevation={0} sx={{ justifyContent: 'flex-end' }}>
+    <HeaderAppBar elevation={0} sx={{ justifyContent: 'center' }}>
       <WalletMenuButton />
     </HeaderAppBar>
   ) : null;

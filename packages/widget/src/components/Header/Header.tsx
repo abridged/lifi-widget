@@ -22,8 +22,8 @@ export const HeaderContainer: FC<PropsWithChildren<{}>> = ({ children }) => {
 export const Header: FC = () => {
   return (
     <HeaderContainer>
-      <WalletHeader />
       <NavigationHeader />
+      <WalletHeader />
     </HeaderContainer>
   );
 };

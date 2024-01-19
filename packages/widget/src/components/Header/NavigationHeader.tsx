@@ -26,7 +26,6 @@ export const NavigationHeader: React.FC = () => {
   const { isConnected } = useAccount();
   const { element, title } = useHeaderStore((state) => state);
   const { pathname } = useLocation();
-
   const cleanedPathname = pathname.endsWith('/')
     ? pathname.slice(0, -1)
     : pathname;
@@ -37,6 +36,8 @@ export const NavigationHeader: React.FC = () => {
 
   const handleHeaderTitle = () => {
     switch (path) {
+      case navigationRoutes.home:
+        return t(`header.transferOptions`);
       case navigationRoutes.selectWallet:
         return t(`header.selectWallet`);
       case navigationRoutes.settings:
@@ -104,8 +105,9 @@ export const NavigationHeader: React.FC = () => {
           </Box>
         ) : (
           <Typography
-            fontSize={hasPath ? 18 : 24}
-            align={hasPath ? 'center' : 'left'}
+            fontSize={24}
+            align={'center'}
+            textAlign={'center'}
             fontWeight="700"
             flex={1}
             noWrap
@@ -115,7 +117,7 @@ export const NavigationHeader: React.FC = () => {
         )}
         <Routes>
           <Route
-            path={navigationRoutes.home}
+            path={navigationRoutes.bridgeHome}
             element={
               <HeaderControlsContainer>
                 {isConnected && !hiddenUI?.includes(HiddenUI.History) ? (

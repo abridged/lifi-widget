@@ -20,7 +20,7 @@ export const HeaderAppBar = styled(AppBar)(({ theme }) => ({
 export const Container = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'sticky',
 })<{ sticky?: boolean }>(({ theme, sticky }) => ({
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: 'transparent',
   backdropFilter: 'blur(12px)',
   position: sticky ? 'sticky' : 'relative',
   top: 0,
