@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/abridged/lifi-widget/compare/v3.0.0-alpha.14...v3.0.0) (2024-01-19)
+
+
+### Features
+
+* update deps ([96d521f](https://github.com/abridged/lifi-widget/commit/96d521f97638c8ebc1d1b2c7c46f4288cf5b76f9))
+* update package name for the fork ([5a91357](https://github.com/abridged/lifi-widget/commit/5a91357cd80788304edca329d6947e16d99d8f1b))
+
+
+### Bug Fixes
+
+* add examples/nextjs to the build ([05fe5c6](https://github.com/abridged/lifi-widget/commit/05fe5c68b981b23adb2c60d7f9c329fa7b8d0b16))
+
 ## [2.8.0](https://github.com/lifinance/widget/compare/v2.7.1...v2.8.0) (2023-10-30)
 
 
