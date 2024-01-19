@@ -1,6 +1,6 @@
 import { getWalletClient, switchChain } from '@wagmi/core';
 import { ethers } from 'ethers';
-import { submitTxWaitJob, waitForTx } from '..//utils/apis';
+import { submitTxWaitJob, TransactionReceipt, waitForTx } from '../utils/apis';
 import { Chain } from '../types/types';
 import { useState } from 'react';
 import { useAccount } from '@collabland/lifi-widget';
@@ -15,6 +15,10 @@ export enum TransactionStatus {
   FAILED,
 }
 
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export const useTransfer = () => {
   const { account } = useAccount();
   const wagmiConfig = useConfig();
@@ -24,6 +28,21 @@ export const useTransfer = () => {
   const [status, setStatus] = useState<TransactionStatus>(
     TransactionStatus.NOT_STARTED,
   );
+
+  const waitForStatus = async (chainId: number, hash: string) => {
+    let complete: TransactionReceipt | undefined;
+    do {
+      const receipt = await waitForTx({
+        chainId: `${chainId}`,
+        txHash: `${hash}`,
+      });
+      if (receipt.status && [0, 1].includes(receipt.status)) {
+        complete = receipt;
+      }
+      await delay(1000);
+    } while (!complete);
+    return complete;
+  };
 
   const transfer = async (
     chain: Chain,
@@ -67,10 +86,12 @@ export const useTransfer = () => {
         });
       }
       setStatus(TransactionStatus.WAITING_TO_COMPLETE);
-      await waitForTx({
-        chainId: `${chain.id}`,
-        txHash: `${tx}`,
-      });
+      const receipt = await waitForStatus(chain.id, tx);
+      if (receipt.status === 0) {
+        setIsLoading(false);
+        setStatus(TransactionStatus.FAILED);
+        setError('Transaction Failed');
+      }
       setStatus(TransactionStatus.COMPLETED);
       setIsLoading(false);
     } catch (e) {

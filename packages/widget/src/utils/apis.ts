@@ -1,5 +1,6 @@
 import { EthereumBalanceRequest } from '../types/types';
 import httpClient from './httpClient';
+import { BigNumber } from 'ethers';
 
 export function getUserProfile() {
   return httpClient(`account/me`);
@@ -33,8 +34,28 @@ export function submitTxWaitJob(txObj: {
     body: JSON.stringify(txObj),
   });
 }
-
-export async function waitForTx(txObj: { chainId: string; txHash: string }) {
+export interface TransactionReceipt {
+  to: string;
+  from: string;
+  contractAddress: string;
+  transactionIndex: number;
+  root?: string;
+  gasUsed: BigNumber;
+  logsBloom: string;
+  blockHash: string;
+  transactionHash: string;
+  blockNumber: number;
+  confirmations: number;
+  cumulativeGasUsed: BigNumber;
+  effectiveGasPrice: BigNumber;
+  byzantium: boolean;
+  type: number;
+  status?: number;
+}
+export async function waitForTx(txObj: {
+  chainId: string;
+  txHash: string;
+}): Promise<TransactionReceipt> {
   return httpClient(`telefrens/lifi-widget/wait-tx`, {
     method: 'post',
     body: JSON.stringify(txObj),
