@@ -10,7 +10,8 @@ import { TransactionStatus, useTransfer } from '../../../hooks/useTransfer';
 import React, { ReactNode, useEffect } from 'react';
 import { Alert, Avatar, Box } from '@mui/material';
 import LoadingScreen from './LoadingScreen';
-import { chains } from '../../../utils/constant';
+import { useAvailableChains } from '@collabland/lifi-widget';
+import { TokenAvatar } from '../../../components/TokenAvatar';
 
 export interface TransactionDialogProps {
   chain: Chain;
@@ -25,7 +26,7 @@ const CustomDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialog-paper': {
     display: 'flex',
     // width: '600px',
-    minHeight: '400px',
+    // minHeight: '400px',
     flexDirection: 'column',
     alignItems: 'center',
     gap: '20px',
@@ -44,7 +45,9 @@ export default function TransactionDialog({
   onError,
 }: TransactionDialogProps) {
   const { transfer, status, tx, error, isLoading } = useTransfer();
-  const arbChain = chains.find((chain) => chain.id === 42161);
+  const { chains } = useAvailableChains();
+  const arbChain = chains?.find((chain) => chain.id === 42161);
+  const chainDetail = chains?.find((c) => c.id === chain.id);
   let title = 'Bridging Account';
   useEffect(() => {
     transfer(chain, amount, toSmartAccount, quote);
@@ -81,34 +84,44 @@ export default function TransactionDialog({
         <Box
           display={'flex'}
           flexDirection={'column'}
-          justifyContent={'center'}
+          justifyContent={'space-between'}
           alignItems={'center'}
-          gap={1}
+          gap={2}
         >
           <Box
             display={'flex'}
             justifyContent={'center'}
             alignItems={'center'}
-            gap={1}
+            gap={2}
           >
-            <Avatar
-              sx={{ width: 64, height: 64 }}
-              alt={chain.nativeToken.name}
-              src={chain.nativeToken.image}
+            <TokenAvatar
+              // sx={{ width: 64, height: 64 }}
+              chain={chainDetail}
+              token={chainDetail?.nativeToken}
             />
             <LoadingScreen />
-            <Avatar
-              sx={{ width: 64, height: 64 }}
-              alt={arbChain?.nativeToken.name}
-              src={arbChain?.nativeToken.image}
+            <TokenAvatar
+              // sx={{ width: 64, height: 64 }}
+              chain={arbChain}
+              token={arbChain?.nativeToken}
             />
           </Box>
-          <Typography>
-            Converting your selections to Arbitrum ETH and transferring to your
-            Telefrens account
+          <Typography color={'#AAA'} fontWeight={400} textAlign={'center'}>
+            Converting your selections to{' '}
+            <Typography color={'#FFF'} fontWeight={700}>
+              Arbitrum ETH
+            </Typography>{' '}
+            and transferring to your Telefrens account
           </Typography>
-          <Typography>No need to wait:</Typography>
-          <Typography>
+          <Typography
+            color={'#FFF'}
+            fontWeight={700}
+            fontSize={'20px'}
+            textAlign={'center'}
+          >
+            No need to wait:
+          </Typography>
+          <Typography color={'#AAA'} fontWeight={400} textAlign={'center'}>
             The bot will message you when this transaction is complete.
           </Typography>
         </Box>
@@ -119,11 +132,47 @@ export default function TransactionDialog({
       content = (
         <Box
           display={'flex'}
-          justifyContent={'center'}
+          flexDirection={'column'}
+          justifyContent={'space-between'}
           alignItems={'center'}
-          gap={1}
+          gap={2}
         >
-          <Typography>Success</Typography>
+          <Box
+            display={'flex'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={2}
+          >
+            <TokenAvatar
+              // sx={{ width: 64, height: 64 }}
+              chain={arbChain}
+              token={arbChain?.nativeToken}
+            />
+          </Box>
+          <Typography
+            color={'#FFF'}
+            fontWeight={700}
+            fontSize={'20px'}
+            textAlign={'center'}
+          >
+            Arbitrum ETH
+          </Typography>
+          <Typography color={'#FFF'} fontWeight={700} textAlign={'center'}>
+            Balance:
+          </Typography>
+
+          <Typography
+            color={'#AAA'}
+            fontWeight={400}
+            textAlign={'center'}
+            display={'flex'}
+            justifyContent={'center'}
+            alignItems={'center'}
+            gap={2}
+          >
+            Transfer complete of Arbitrum ETH to your Telefrens account is
+            complete!
+          </Typography>
         </Box>
       );
       break;
@@ -136,7 +185,7 @@ export default function TransactionDialog({
       aria-labelledby="customized-dialog-title"
       open={true}
       fullWidth={true}
-      maxWidth={'md'}
+      maxWidth={'sm'}
     >
       <DialogTitle
         sx={{ fontWeight: 700, padding: 0 }}

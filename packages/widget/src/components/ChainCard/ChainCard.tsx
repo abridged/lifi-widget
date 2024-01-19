@@ -12,6 +12,8 @@ import { Accordion, AccordionSummary, ChainContainer } from './ChainCard.style';
 import { useState } from 'react';
 import { parseEther } from 'viem';
 import LoadingButton from '@mui/lab/LoadingButton';
+import { useAvailableChains } from '@collabland/lifi-widget';
+import { TokenAvatar } from '../TokenAvatar';
 
 export const ChainCard: React.FC<ChainCardProps> = ({
   chain,
@@ -23,6 +25,7 @@ export const ChainCard: React.FC<ChainCardProps> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const [isDirty, setIsDirty] = useState<boolean>(false);
   const [error, setError] = useState<string | undefined>(undefined);
+  const { chains } = useAvailableChains();
   const validate = (val: string) => {
     if (!val) {
       setError('Required');
@@ -43,6 +46,8 @@ export const ChainCard: React.FC<ChainCardProps> = ({
     setError(undefined);
     return true;
   };
+
+  const chainDetail = chains?.find((c) => c.id === chain.id);
   return (
     <ChainContainer>
       <Box
@@ -63,7 +68,7 @@ export const ChainCard: React.FC<ChainCardProps> = ({
         <Avatar
           sx={{ width: 24, height: 24 }}
           alt={chain.name}
-          src={chain.image}
+          src={chainDetail?.logoURI}
         />{' '}
         <Typography
           color={'#FFF'}
@@ -103,10 +108,9 @@ export const ChainCard: React.FC<ChainCardProps> = ({
               alignItems={'center'}
               gap={2}
             >
-              <Avatar
-                sx={{ width: 36, height: 36 }}
-                alt={chain.nativeToken.name}
-                src={chain.nativeToken.image}
+              <TokenAvatar
+                chain={chainDetail}
+                token={chainDetail?.nativeToken}
               />
               <Box display={'flex'} flexDirection={'column'} width={'100%'}>
                 <Box

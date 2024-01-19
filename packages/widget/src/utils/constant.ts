@@ -21,7 +21,7 @@ export const chains: Chain[] = [
     tokenName: 'ETH',
     image: 'https://icons.llamao.fi/icons/chains/rsz_ethereum.jpg',
     nativeToken: {
-      name: 'Etherium',
+      name: 'Ethereum',
       image: 'https://icons.llamao.fi/icons/chains/rsz_ethereum.jpg',
       symbol: 'ETH',
     },
