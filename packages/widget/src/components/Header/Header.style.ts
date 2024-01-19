@@ -29,12 +29,12 @@ export const Container = styled(Box, {
 
 export const WalletButton = styled(Button)(({ theme }) => ({
   color: theme.palette.text.primary,
-  backgroundColor: 'transparent',
+  // backgroundColor: 'transparent',
   padding: theme.spacing(1, 1.5),
+  width: '100%',
   maxHeight: 40,
   fontSize: '0.875rem',
   fontWeight: 600,
-  borderRadius: theme.shape.borderRadius * 2,
   '&:hover': {
     backgroundColor:
       theme.palette.mode === 'light'
@@ -60,20 +60,20 @@ export const DrawerWalletContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
 
-  '& button:first-of-type': {
-    marginLeft: theme.spacing(-1),
-  },
-  '& button:last-of-type': {
-    marginRight: theme.spacing(-1.25),
-  },
+  // '& button:first-of-type': {
+  //   marginLeft: theme.spacing(-1),
+  // },
+  // '& button:last-of-type': {
+  //   marginRight: theme.spacing(-1.25),
+  // },
 }));
 
 export const HeaderControlsContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   gap: theme.spacing(0.5),
-  '& button:last-of-type': {
-    marginRight: theme.spacing(-1.25),
-  },
+  // '& button:last-of-type': {
+  //   marginRight: theme.spacing(-1.25),
+  // },
 }));
 
 export const SplitTabs = styled(Tabs)(({ theme }) => ({

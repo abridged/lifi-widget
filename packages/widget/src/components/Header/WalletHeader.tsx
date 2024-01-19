@@ -95,10 +95,10 @@ const ConnectButton = () => {
       onClick={
         !pathname.includes(navigationRoutes.selectWallet) ? connect : undefined
       }
-      sx={{
-        marginRight: subvariant === 'split' ? 0 : -1.25,
-        marginLeft: subvariant === 'split' ? -1.25 : 0,
-      }}
+      // sx={{
+      //   marginRight: subvariant === 'split' ? 0 : -1.25,
+      //   marginLeft: subvariant === 'split' ? -1.25 : 0,
+      // }}
     >
       {t(`button.connectWallet`)}
     </WalletButton>
@@ -157,10 +157,10 @@ const ConnectedButton = ({ account }: { account: Account }) => {
             avatar
           )
         }
-        sx={{
-          marginRight: subvariant === 'split' ? 0 : -1.25,
-          marginLeft: subvariant === 'split' ? -1 : 0,
-        }}
+        // sx={{
+        // marginRight: subvariant === 'split' ? 0 : -1.25,
+        // marginLeft: subvariant === 'split' ? -1 : 0,
+        // }}
         onClick={handleClick}
       >
         {walletAddress}

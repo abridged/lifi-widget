@@ -26,7 +26,7 @@ export const AppDefault = () => {
       <FlexContainer disableGutters>
         <AppRoutes />
       </FlexContainer>
-      {/*<PoweredBy />*/}
+      <PoweredBy />
       <Initializer />
     </AppContainer>
     // {expandable ? <RoutesExpanded /> : null}

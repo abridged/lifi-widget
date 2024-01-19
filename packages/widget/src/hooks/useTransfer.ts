@@ -36,7 +36,7 @@ export const useTransfer = () => {
         chainId: `${chainId}`,
         txHash: `${hash}`,
       });
-      if (receipt.status && [0, 1].includes(receipt.status)) {
+      if (receipt?.status && [0, 1].includes(receipt.status)) {
         complete = receipt;
       }
       await delay(1000);

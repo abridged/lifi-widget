@@ -17,7 +17,7 @@ export function Widget() {
         <LiFiWidget
           config={{
             containerStyle: {
-              border: `1px solid rgb(234, 234, 234)`,
+              border: `1px solid #565656`,
               borderRadius: '16px',
             },
           }}

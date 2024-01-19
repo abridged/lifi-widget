@@ -36,7 +36,7 @@ export const NavigationHeader: React.FC = () => {
 
   const handleHeaderTitle = () => {
     switch (path) {
-      case navigationRoutes.home:
+      case '':
         return t(`header.transferOptions`);
       case navigationRoutes.selectWallet:
         return t(`header.selectWallet`);
@@ -105,7 +105,7 @@ export const NavigationHeader: React.FC = () => {
           </Box>
         ) : (
           <Typography
-            fontSize={24}
+            fontSize={20}
             align={'center'}
             textAlign={'center'}
             fontWeight="700"
@@ -132,7 +132,7 @@ export const NavigationHeader: React.FC = () => {
               </HeaderControlsContainer>
             }
           />
-          <Route path="*" element={element || <Box width={28} height={40} />} />
+          <Route path="*" element={element || <></>} />
         </Routes>
       </HeaderAppBar>
       {splitSubvariant ? <NavigationTabs /> : null}

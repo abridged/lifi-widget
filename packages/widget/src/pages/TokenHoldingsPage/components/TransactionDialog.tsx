@@ -7,11 +7,11 @@ import DialogActions from '@mui/material/DialogActions';
 import Typography from '@mui/material/Typography';
 import { Chain } from '../../../types/types';
 import { TransactionStatus, useTransfer } from '../../../hooks/useTransfer';
-import React, { ReactNode, useEffect } from 'react';
-import { Alert, Avatar, Box } from '@mui/material';
+import React, { ReactNode, useEffect, useState } from 'react';
+import { Box } from '@mui/material';
 import LoadingScreen from './LoadingScreen';
-import { useAvailableChains } from '@collabland/lifi-widget';
 import { TokenAvatar } from '../../../components/TokenAvatar';
+import { useChain } from '../../../hooks';
 
 export interface TransactionDialogProps {
   chain: Chain;
@@ -45,9 +45,8 @@ export default function TransactionDialog({
   onError,
 }: TransactionDialogProps) {
   const { transfer, status, tx, error, isLoading } = useTransfer();
-  const { chains } = useAvailableChains();
-  const arbChain = chains?.find((chain) => chain.id === 42161);
-  const chainDetail = chains?.find((c) => c.id === chain.id);
+  const { chain: arbChain } = useChain(42161);
+  const { chain: chainDetail } = useChain(chain.id);
   let title = 'Bridging Account';
   useEffect(() => {
     transfer(chain, amount, toSmartAccount, quote);
