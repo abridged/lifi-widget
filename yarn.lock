@@ -1838,7 +1838,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@collabland/lifi-wallet-management@npm:^3.0.0-alpha.9, @collabland/lifi-wallet-management@workspace:packages/wallet-management":
+"@collabland/lifi-wallet-management@npm:^3.0.0, @collabland/lifi-wallet-management@workspace:packages/wallet-management":
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-wallet-management@workspace:packages/wallet-management"
   dependencies:
@@ -1854,8 +1854,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-widget-embedded@workspace:packages/widget-embedded"
   dependencies:
-    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.9"
-    "@collabland/lifi-widget": "npm:^3.0.0-alpha.12"
+    "@collabland/lifi-wallet-management": "npm:^3.0.0"
+    "@collabland/lifi-widget": "npm:^3.0.0"
     "@ethersproject/abstract-signer": "npm:^5.7.0"
     "@ethersproject/providers": "npm:^5.7.2"
     "@lifi/sdk": "npm:^3.0.0-alpha.47"
@@ -1883,8 +1883,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-widget-playground@workspace:packages/widget-playground"
   dependencies:
-    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.9"
-    "@collabland/lifi-widget": "npm:^3.0.0-alpha.14"
+    "@collabland/lifi-wallet-management": "npm:^3.0.0"
+    "@collabland/lifi-widget": "npm:^3.0.0"
     "@esbuild-plugins/node-globals-polyfill": "npm:^0.2.3"
     "@lifi/sdk": "npm:^3.0.0-alpha.47"
     "@mui/icons-material": "npm:^5.15.4"
@@ -1907,11 +1907,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@collabland/lifi-widget@npm:^3.0.0-alpha.12, @collabland/lifi-widget@npm:^3.0.0-alpha.14, @collabland/lifi-widget@workspace:packages/widget":
+"@collabland/lifi-widget@npm:^3.0.0, @collabland/lifi-widget@npm:^3.0.0-alpha.12, @collabland/lifi-widget@workspace:packages/widget":
   version: 0.0.0-use.local
   resolution: "@collabland/lifi-widget@workspace:packages/widget"
   dependencies:
-    "@collabland/lifi-wallet-management": "npm:^3.0.0-alpha.9"
+    "@collabland/lifi-wallet-management": "npm:^3.0.0"
     "@emotion/react": "npm:^11.11.3"
     "@emotion/styled": "npm:^11.11.0"
     "@lifi/sdk": "npm:^3.0.0-alpha.47"

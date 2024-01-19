@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/abridged/lifi-widget/compare/v3.0.0-alpha.12...v3.0.0) (2024-01-19)
+
+
+### Features
+
+* add onClose callback for drawer and position drawer close button correctly ([e299ca8](https://github.com/abridged/lifi-widget/commit/e299ca879d46752b7d2f19c1789bef33acaa190e))
+* add WalletConnect and Coinbase connector creator functions ([a2e5073](https://github.com/abridged/lifi-widget/commit/a2e5073915123614d2f06f7b226d3c4f3fc699c7))
+* allow different chain configuration for from and to sides of the transfer ([#170](https://github.com/abridged/lifi-widget/issues/170)) ([4d85408](https://github.com/abridged/lifi-widget/commit/4d85408228159d75e0aa6b23ab54c46b60a363a9))
+* improve multi-ecosystem compatibility ([c0cc295](https://github.com/abridged/lifi-widget/commit/c0cc2956444f131bbe5970e6752b768aae548cb1))
+* update deps ([96d521f](https://github.com/abridged/lifi-widget/commit/96d521f97638c8ebc1d1b2c7c46f4288cf5b76f9))
+* update package name for the fork ([5a91357](https://github.com/abridged/lifi-widget/commit/5a91357cd80788304edca329d6947e16d99d8f1b))
+
+
+### Bug Fixes
+
+* add examples/nextjs to the build ([05fe5c6](https://github.com/abridged/lifi-widget/commit/05fe5c68b981b23adb2c60d7f9c329fa7b8d0b16))
+* invalidate transaction history when transfer is completed ([26fffbb](https://github.com/abridged/lifi-widget/commit/26fffbb86c1b6b7318a94cd376e9f528d1328d43))
+* skip svm check ([e9104d5](https://github.com/abridged/lifi-widget/commit/e9104d53ede134f7bf9c55e4a64ce20c49baaa8a))
+* strongly type form values returned from hooks ([#169](https://github.com/abridged/lifi-widget/issues/169)) ([3af476f](https://github.com/abridged/lifi-widget/commit/3af476f9016ce096175a278a9533094668e317ac))
+
 ## [2.8.0](https://github.com/lifinance/widget/compare/v2.7.1...v2.8.0) (2023-10-30)
 
 
