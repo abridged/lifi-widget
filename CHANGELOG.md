@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/abridged/lifi-widget/compare/v3.0.0-alpha.17...v3.1.0) (2024-01-19)
+
+
+### Features
+
+* delete unused packages ([4195a65](https://github.com/abridged/lifi-widget/commit/4195a655e89ba2d77d3fdcc7d68cfc18faad758c))
+* update deps ([08a9be0](https://github.com/abridged/lifi-widget/commit/08a9be0d727d3c9f7db50ebf3166e1bab26815b3))
+* update package name for the fork ([2487cd5](https://github.com/abridged/lifi-widget/commit/2487cd563fcdaa3807e3e86d8f231c5e6f871b9f))
+* update versions ([5a64490](https://github.com/abridged/lifi-widget/commit/5a64490451d23bfe50d77663ed8e4e69a8bbb8fc))
+
+
+### Bug Fixes
+
+* add examples/nextjs to the build ([18656be](https://github.com/abridged/lifi-widget/commit/18656bebbc509136e000ab4e18cbcb511307c8e6))
+* support cashtags in token search ([4f74130](https://github.com/abridged/lifi-widget/commit/4f7413029d930bbea07b759aeeecdc2c14cb9de9))
+
 ## [3.0.0](https://github.com/abridged/lifi-widget/compare/v3.0.0-alpha.17...v3.0.0) (2024-01-19)
 
 
