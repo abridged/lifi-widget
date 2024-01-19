@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/abridged/lifi-widget/compare/v3.1.0...v3.1.1) (2024-01-19)
+
+
+### Bug Fixes
+
+* remove yarn.lock from example ([80c4a55](https://github.com/abridged/lifi-widget/commit/80c4a5550f60a7aec5d9163c2ed3d7400c7601d0))
+
 ## [3.1.0](https://github.com/abridged/lifi-widget/compare/v3.0.0-alpha.17...v3.1.0) (2024-01-19)
 
 
