@@ -87,3 +87,27 @@ export async function submitTxWaitJob(
     throw new Error('Failed to submit tx wait job');
   }
 }
+
+export async function waitForTx(
+  accessToken: string,
+  txObj: {
+    chainId: string;
+    txHash: string;
+  },
+) {
+  const res = await fetch(`${apiUrl}/telefrens/lifi-widget/wait-tx`, {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      accept: 'application/json,',
+      authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify(txObj),
+  });
+
+  if (!res.ok) {
+    throw new Error('Failed to wait for tx');
+  }
+  const data = await res.json();
+  return data;
+}

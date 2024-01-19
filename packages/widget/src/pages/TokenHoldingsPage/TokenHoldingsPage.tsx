@@ -21,6 +21,7 @@ import {
   getUserProfile,
   getUserSmartAccount,
   submitTxWaitJob,
+  waitForTx,
 } from './apis';
 import { LoadingIndicator } from './LoadingIndicator';
 
@@ -145,6 +146,8 @@ export const TokenHoldingsPage: React.FC = () => {
         client = await getWalletClient(wagmiConfig);
       }
       try {
+        // const tx =
+        //   '0xdfcb70cfa9a285c5bce68339fab375cdf054c5d8249f3466986b6f3ae8bfa492';
         const tx = await client.sendTransaction({
           // @ts-ignore: Unreachable code error
           to: toSmartAccount,
@@ -152,9 +155,10 @@ export const TokenHoldingsPage: React.FC = () => {
           data: '0x',
         });
         console.log(tx);
-        // TODO await tx.wait();
-        // sample tx hash: 0xdfcb70cfa9a285c5bce68339fab375cdf054c5d8249f3466986b6f3ae8bfa492
-
+        await waitForTx(accessToken, {
+          chainId: `42161`,
+          txHash: `${tx}`,
+        });
         setModalContent(
           <div>
             Success!
@@ -235,13 +239,15 @@ export const TokenHoldingsPage: React.FC = () => {
         client = await getWalletClient(wagmiConfig);
       }
       try {
+        // const tx =
+        //   '0xdfcb70cfa9a285c5bce68339fab375cdf054c5d8249f3466986b6f3ae8bfa492';
         const tx = await client.sendTransaction(quote.transactionRequest);
         // sample data
         // console.log({
         //   toChain: '42161',
         //   fromChain: '137',
         //   txHash:
-        //     '0x7d74e4006b1c4626687a57326d35cc6dcfc47ad37fc33c61c465c76a4769d677',
+        //     '0xdfcb70cfa9a285c5bce68339fab375cdf054c5d8249f3466986b6f3ae8bfa492',
         //   bridge: 'hop',
         // });
         await submitTxWaitJob(accessToken, {
@@ -249,6 +255,11 @@ export const TokenHoldingsPage: React.FC = () => {
           toChain: quote.action.toChainId.toString(),
           bridge: quote.estimate.tool,
           txHash: tx,
+        });
+        console.log(tx);
+        await waitForTx(accessToken, {
+          chainId: `${chain.id}`,
+          txHash: `${tx}`,
         });
         setModalContent(
           <div>
