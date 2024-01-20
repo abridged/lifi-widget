@@ -1,6 +1,6 @@
 {
   "name": "@collabland/lifi-widget",
-  "version": "3.1.2",
+  "version": "3.2.0",
   "description": "LI.FI Widget for cross-chain bridging and swapping. It will drive your multi-chain strategy and attract new users from everywhere.",
   "type": "module",
   "main": "./src/index.ts",
