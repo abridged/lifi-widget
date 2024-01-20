@@ -39,7 +39,7 @@ export const useTransfer = () => {
       if (receipt?.status && [0, 1].includes(receipt.status)) {
         complete = receipt;
       }
-      await delay(1000);
+      await delay(2000);
     } while (!complete);
     return complete;
   };

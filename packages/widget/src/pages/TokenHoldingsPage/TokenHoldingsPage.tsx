@@ -53,6 +53,7 @@ export const TokenHoldingsPage: React.FC = () => {
     }
     const balance = chain.nativeToken.balance;
     if (isBridgeTransaction) {
+      // TODO: convert Number to BigNumber
       const total =
         Number(quote.estimate.gasCosts[0].amount) +
         Number(quote.action.fromAmount);
@@ -92,7 +93,7 @@ export const TokenHoldingsPage: React.FC = () => {
           }}
         />
       )}
-      {account.isConnected ? (
+      {account.isConnected && (
         getUserInfoError ? (
           <Alert variant="filled" severity="error">
             {getUserInfoError}
@@ -124,11 +125,6 @@ export const TokenHoldingsPage: React.FC = () => {
             <AdvanceOptions />
           </>
         )
-      ) : (
-        <Alert variant="filled" severity="warning">
-          {' '}
-          Connect wallet first
-        </Alert>
       )}
     </TokenHoldingContainer>
   );
