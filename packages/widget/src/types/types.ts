@@ -17,6 +17,7 @@ export type Chain = {
   tokenName: string;
   image: string;
   nativeToken: Token;
+  transactionLink: string;
 };
 
 export type Balance = {

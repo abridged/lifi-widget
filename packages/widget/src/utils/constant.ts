@@ -8,6 +8,7 @@ export const chains: Chain[] = [
     chainName: 'arb',
     tokenName: 'ETH',
     image: 'https://icons.llamao.fi/icons/chains/rsz_arbitrum.jpg',
+    transactionLink: 'https://arbiscan.io/tx',
     nativeToken: {
       name: 'Arbitrum ETH',
       image: 'https://icons.llamao.fi/icons/chains/rsz_arbitrum.jpg',
@@ -20,6 +21,7 @@ export const chains: Chain[] = [
     chainName: 'eth',
     tokenName: 'ETH',
     image: 'https://icons.llamao.fi/icons/chains/rsz_ethereum.jpg',
+    transactionLink: 'https://etherscan.io/tx',
     nativeToken: {
       name: 'Ethereum',
       image: 'https://icons.llamao.fi/icons/chains/rsz_ethereum.jpg',
@@ -32,6 +34,7 @@ export const chains: Chain[] = [
     chainName: 'pol',
     tokenName: 'MATIC',
     image: 'https://icons.llamao.fi/icons/chains/rsz_polygon.jpg',
+    transactionLink: 'https://polygonscan.com/tx',
     nativeToken: {
       name: 'MATIC',
       image: 'https://icons.llamao.fi/icons/chains/rsz_polygon.jpg',
@@ -44,6 +47,7 @@ export const chains: Chain[] = [
     chainName: 'opt',
     tokenName: 'ETH',
     image: 'https://icons.llamao.fi/icons/chains/rsz_optimism.jpg',
+    transactionLink: 'https://optimistic.etherscan.io/tx',
     nativeToken: {
       name: 'Optimism ETH',
       image: 'https://icons.llamao.fi/icons/chains/rsz_optimism.jpg',

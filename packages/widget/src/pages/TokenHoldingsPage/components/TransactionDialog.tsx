@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { Chain } from '../../../types/types';
 import { TransactionStatus, useTransfer } from '../../../hooks/useTransfer';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import LoadingScreen from './LoadingScreen';
 import { TokenAvatar } from '../../../components/TokenAvatar';
 import { useChain } from '../../../hooks';
@@ -62,11 +62,18 @@ export default function TransactionDialog({
       content = <SignScreen />;
       break;
     case TransactionStatus.WAITING_TO_COMPLETE:
-      content = <WaitingScreen chain={chain} tx={tx} quote={quote} />;
+      content = (
+        <WaitingScreen
+          chain={chain}
+          tx={tx}
+          quote={quote}
+          url={chain.transactionLink}
+        />
+      );
       break;
     case TransactionStatus.COMPLETED:
       title = 'Success!';
-      content = <SuccessScreen tx={tx} />;
+      content = <SuccessScreen tx={tx} url={chain.transactionLink} />;
       break;
     case TransactionStatus.FAILED:
       onError(error);
@@ -123,9 +130,11 @@ const WaitingScreen = ({
   chain,
   quote,
   tx,
+  url,
 }: {
   chain: Chain;
   tx?: string;
+  url?: string;
   quote?: any;
 }) => {
   const { chain: arbChain } = useChain(42161);
@@ -163,18 +172,20 @@ const WaitingScreen = ({
         </Typography>{' '}
         and transferring to your Telefrens account
       </Typography>
-      <Button
-        variant={'text'}
-        onClick={() => {
-          window.open(`https://arbiscan.io/tx/${tx}`);
-        }}
-      >
-        {' '}
-        View transaction{' '}
-      </Button>
+      {url && (
+        <Link
+          href={`${url}/${tx}`}
+          about={'_blank'}
+          color={'grey'}
+          underline="hover"
+        >
+          {' '}
+          View transaction{' '}
+        </Link>
+      )}
       {quote && (
         <Typography color={'#AAA'} fontWeight={400} textAlign={'center'}>
-          Estimate time: {formatDuration(quote.estimate.executionDuration)}
+          Estimated time: {formatDuration(quote.estimate.executionDuration)}
         </Typography>
       )}
       <Typography
@@ -192,7 +203,7 @@ const WaitingScreen = ({
   );
 };
 
-const SuccessScreen = ({ tx }: { tx?: string }) => {
+const SuccessScreen = ({ tx, url }: { tx?: string; url?: string }) => {
   const { chain: arbChain } = useChain(42161);
   const [balance, setBalance] = useState<undefined | string>(undefined);
   useEffect(() => {
@@ -245,15 +256,17 @@ const SuccessScreen = ({ tx }: { tx?: string }) => {
       >
         Transfer complete of Arbitrum ETH to your Telefrens account is complete!
       </Typography>
-      <Button
-        variant={'text'}
-        onClick={() => {
-          window.open(`https://arbiscan.io/tx/${tx}`);
-        }}
-      >
-        {' '}
-        View transaction{' '}
-      </Button>
+      {url && (
+        <Link
+          href={`${url}/${tx}`}
+          about={'_blank'}
+          color={'grey'}
+          underline="hover"
+        >
+          {' '}
+          View transaction{' '}
+        </Link>
+      )}
     </Box>
   );
 };
