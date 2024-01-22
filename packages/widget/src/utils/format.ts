@@ -1,4 +1,5 @@
 import { formatUnits } from 'viem';
+import moment from "moment";
 
 /**
  * Format token amount to at least 4 decimals.
@@ -91,3 +92,15 @@ export const formatTokenPrice = (amount?: string, price?: string) => {
   }
   return parseFloat(amount) * parseFloat(price);
 };
+
+export function formatDuration(seconds: number) {
+  const duration = moment.duration(seconds, 'seconds');
+
+  if (duration.asHours() >= 1) {
+    return duration.hours() + ' hours';
+  } else if (duration.asMinutes() >= 1) {
+    return duration.minutes() + ' minutes';
+  } else {
+    return duration.seconds() + ' seconds';
+  }
+}

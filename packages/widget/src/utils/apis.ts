@@ -62,6 +62,10 @@ export async function waitForTx(txObj: {
   });
 }
 
+export const getArbBalance = () => {
+  return httpClient(`telefrens/get-account-balance`);
+};
+
 export const getQuote = async (
   fromChain: string,
   fromToken: string,

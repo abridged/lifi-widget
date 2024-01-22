@@ -38,7 +38,6 @@ export const TokenHoldingsPage: React.FC = () => {
       }
     | undefined
   >(undefined);
-
   const onSubmit = async (amount: string, chain: Chain) => {
     const ethersVal = ethers.utils.parseEther(amount);
     const isBridgeTransaction = chain.id !== 42161;

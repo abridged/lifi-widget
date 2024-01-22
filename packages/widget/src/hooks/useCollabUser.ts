@@ -4,6 +4,7 @@ import { chains } from '../utils/constant';
 import { Balance, Chain, EthereumAsset } from '../types/types';
 import { formatUnits } from 'viem';
 import { useAccount } from '@collabland/lifi-widget';
+import useSWR from 'swr';
 
 async function getUserInfo(accountAddress: string) {
   const [userProfile, smartAccountRes] = await Promise.all([
@@ -27,19 +28,18 @@ async function getUserInfo(accountAddress: string) {
 
 export const useCollabUser = () => {
   const { account } = useAccount();
-  const [userId, setUserId] = useState<string>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [toSmartAccount, setSmartAccount] = useState<string>();
-  const [assets, setAssets] = useState<Chain[] | undefined>(undefined);
-  const [pkpAddr, setPkpAddress] = useState<string>();
   const [error, setError] = useState<string | undefined>(undefined);
-
-  useEffect(() => {
-    if (account.address) {
-      setIsLoading(true);
-      getUserInfo(account.address)
-        .then((data) => {
-          const { userProfile, smartAccountRes, balanceResponse } = data;
+  const { data } = useSWR(
+    `/api/profile/${account.address}`,
+    async (): Promise<{
+      assets?: Chain[];
+      toSmartAccount?: string;
+      pkpAddr?: string;
+    }> => {
+      if (account.address) {
+        try {
+          const response = await getUserInfo(account.address);
+          const { userProfile, smartAccountRes, balanceResponse } = response;
           const cwb: Chain[] = [];
           chains.forEach((chain) => {
             const balanceObj = balanceResponse.balances.find(
@@ -54,27 +54,26 @@ export const useCollabUser = () => {
               cwb.push(chain);
             }
           });
-          setAssets(cwb);
-          setUserId(userProfile.id);
-          setSmartAccount(smartAccountRes.smartAccount);
-          setPkpAddress(smartAccountRes.account);
-          setIsLoading(false);
-        })
-        .catch((e) => {
+          return {
+            assets: cwb,
+            toSmartAccount: smartAccountRes.smartAccount,
+            pkpAddr: smartAccountRes.account,
+          };
+        } catch (e) {
           setError('Session Expired');
-          setIsLoading(false);
-        });
-    } else {
-      setIsLoading(true);
-    }
-  }, [account.address]);
+          throw e;
+        }
+      }
+      return {
+        assets: undefined,
+        toSmartAccount: undefined,
+        pkpAddr: undefined,
+      };
+    },
+  );
   return {
     account,
-    userId,
-    isLoading,
-    toSmartAccount,
-    assets,
-    pkpAddr,
+    ...data,
     error,
   };
 };
