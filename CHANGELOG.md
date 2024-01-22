@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.4](https://github.com/abridged/lifi-widget/compare/v3.1.3...v3.1.4) (2024-01-22)
+
 ### [3.1.3](https://github.com/abridged/lifi-widget/compare/v3.1.1...v3.1.3) (2024-01-20)
 
 ### [3.1.2](https://github.com/abridged/lifi-widget/compare/v3.1.1...v3.1.2) (2024-01-20)
