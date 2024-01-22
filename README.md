@@ -87,3 +87,6 @@ The [changelog](/CHANGELOG.md) is regularly updated to reflect what's changed in
 
 This project is licensed under the terms of the
 [Apache-2.0](/LICENSE.md).
+
+yarn release
+yarn release:publish
