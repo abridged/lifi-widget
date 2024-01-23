@@ -15,7 +15,7 @@ export enum TransactionStatus {
   FAILED,
 }
 
-function delay(ms: number) {
+export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
@@ -51,6 +51,7 @@ export const useTransfer = () => {
     quote?: any,
   ) => {
     setIsLoading(true);
+    setStatus(TransactionStatus.NOT_STARTED);
     const ethersVal = ethers.utils.parseEther(amount);
     const currentChain = account.chainId;
     let client;
@@ -59,6 +60,7 @@ export const useTransfer = () => {
       const targetChain = await switchChain(wagmiConfig, {
         chainId: Number(chain.id),
       });
+      console.log(targetChain);
       client = await getWalletClient(wagmiConfig, {
         chainId: targetChain.id,
       });

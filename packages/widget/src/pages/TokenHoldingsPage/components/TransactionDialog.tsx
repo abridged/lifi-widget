@@ -6,7 +6,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import Typography from '@mui/material/Typography';
 import { Chain } from '../../../types/types';
-import { TransactionStatus, useTransfer } from '../../../hooks/useTransfer';
+import {
+  delay,
+  TransactionStatus,
+  useTransfer,
+} from '../../../hooks/useTransfer';
 import React, { ReactNode, useEffect, useState } from 'react';
 import { Box, Link } from '@mui/material';
 import LoadingScreen from './LoadingScreen';
@@ -53,13 +57,28 @@ export default function TransactionDialog({
     transfer(chain, amount, toSmartAccount, quote);
   }, []);
 
+  const onRetry = async () => {
+    transfer(chain, amount, toSmartAccount, quote);
+  };
   let content: ReactNode = <></>;
   switch (status) {
     case TransactionStatus.WAITING_TO_SWITCH:
-      content = <SwitchScreen />;
+      content = (
+        <UserStepScreen
+          key={1}
+          text={'Switch network in your wallet'}
+          onRetry={onRetry}
+        />
+      );
       break;
     case TransactionStatus.WAITING_TO_SIGN:
-      content = <SignScreen />;
+      content = (
+        <UserStepScreen
+          key={2}
+          text={'Sign transaction on your wallet'}
+          onRetry={onRetry}
+        />
+      );
       break;
     case TransactionStatus.WAITING_TO_COMPLETE:
       content = (
@@ -271,28 +290,38 @@ const SuccessScreen = ({ tx, url }: { tx?: string; url?: string }) => {
   );
 };
 
-const SignScreen = () => {
+const UserStepScreen = ({
+  text,
+  onRetry,
+}: {
+  onRetry: () => void;
+  text: string;
+}) => {
+  const [counter, setCounter] = useState(10);
+  useEffect(() => {
+    if (counter > 0) {
+      delay(1000).then(() => {
+        setCounter(counter - 1);
+      });
+    }
+  }, [counter]);
   return (
     <Box
       display={'flex'}
       justifyContent={'center'}
+      flexDirection={'column'}
       alignItems={'center'}
       gap={1}
     >
-      <Typography>Sign transaction on your wallet</Typography>
-    </Box>
-  );
-};
-
-const SwitchScreen = () => {
-  return (
-    <Box
-      display={'flex'}
-      justifyContent={'center'}
-      alignItems={'center'}
-      gap={1}
-    >
-      <Typography>Switch network in your wallet</Typography>
+      <Typography>{text}</Typography>
+      <Button
+        disabled={counter !== 0}
+        color={'inherit'}
+        variant={'outlined'}
+        onClick={onRetry}
+      >
+        {counter === 0 ? 'Retry' : `Retry in ${counter}`}
+      </Button>
     </Box>
   );
 };
