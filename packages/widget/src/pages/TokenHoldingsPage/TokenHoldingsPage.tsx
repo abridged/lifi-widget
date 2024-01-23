@@ -11,6 +11,7 @@ import { ethers } from 'ethers';
 import { getQuote } from '../../utils/apis';
 import { formatUnits } from 'viem';
 import TransactionDialog from './components/TransactionDialog';
+import { useWidgetEvents, WidgetEvent } from '@collabland/lifi-widget';
 
 export const TokenHoldingContainer = styled(Box)(({ theme }) => ({
   padding: '14px',
@@ -28,6 +29,7 @@ export const TokenHoldingsPage: React.FC = () => {
     assets,
     error: getUserInfoError,
   } = useCollabUser();
+  const emitter = useWidgetEvents();
   const [error, setError] = useState<string | undefined>(undefined);
   const [transferRequest, setTransferRequest] = useState<
     | {
@@ -39,6 +41,10 @@ export const TokenHoldingsPage: React.FC = () => {
     | undefined
   >(undefined);
   const onSubmit = async (amount: string, chain: Chain) => {
+    emitter.emit(WidgetEvent.OnSubmitFund, {
+      amount,
+      chain,
+    });
     const ethersVal = ethers.utils.parseEther(amount);
     const isBridgeTransaction = chain.id !== 42161;
     let quote: any;
@@ -92,8 +98,8 @@ export const TokenHoldingsPage: React.FC = () => {
           }}
         />
       )}
-      {account.isConnected && (
-        getUserInfoError ? (
+      {account.isConnected &&
+        (getUserInfoError ? (
           <Alert variant="filled" severity="error">
             {getUserInfoError}
           </Alert>
@@ -123,8 +129,7 @@ export const TokenHoldingsPage: React.FC = () => {
             )}
             <AdvanceOptions />
           </>
-        )
-      )}
+        ))}
     </TokenHoldingContainer>
   );
 };

@@ -1,4 +1,5 @@
 import type { ChainId, ChainType, Process, Route } from '@lifi/sdk';
+import { Chain } from '@collabland/lifi-widget/types/types';
 
 export enum WidgetEvent {
   RouteExecutionStarted = 'routeExecutionStarted',
@@ -12,6 +13,8 @@ export enum WidgetEvent {
   SendToWalletToggled = 'sendToWalletToggled',
   ReviewTransactionPageEntered = 'reviewTransactionPageEntered',
   WalletConnected = 'walletConnected',
+  OnSubmitFund = 'onSubmitFund',
+  OnChainCardExpanded = 'onChainCardExpanded',
 }
 
 export type WidgetEvents = {
@@ -26,7 +29,19 @@ export type WidgetEvents = {
   sendToWalletToggled: boolean;
   reviewTransactionPageEntered?: Route;
   walletConnected: WalletConnected;
+  onSubmitFund: OnSubmitFund;
+  onChainCardExpanded: OnChainCardExpanded;
 };
+
+export interface OnSubmitFund {
+  chain: Chain;
+  amount: string;
+}
+
+export interface OnChainCardExpanded {
+  chain: Chain;
+  expanded: boolean;
+}
 
 export interface ContactSupport {
   supportId?: string;
