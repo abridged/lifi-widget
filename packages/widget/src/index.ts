@@ -12,7 +12,7 @@ export {
 export * from './stores/form/types';
 export { formatChain } from './providers/WalletProvider';
 export * from './types';
-
+export * from './AppProvider';
 // ClassNameGenerator.configure((componentName) =>
 //   componentName.replace('Mui', 'LiFi'),
 // );
