@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/abridged/lifi-widget/compare/v3.1.8...v3.2.0) (2024-01-23)
+
+
+### Features
+
+* udpate widget events tracking ([46e1683](https://github.com/abridged/lifi-widget/commit/46e1683685d217c9b7f7587a2b1a92ef47f0a8e6))
+
 ### [3.1.8](https://github.com/abridged/lifi-widget/compare/v3.1.7...v3.1.8) (2024-01-23)
 
 ### [3.1.7](https://github.com/abridged/lifi-widget/compare/v3.1.6...v3.1.7) (2024-01-23)

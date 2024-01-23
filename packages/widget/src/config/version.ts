@@ -1,2 +1,2 @@
 export const name = '@collabland/lifi-widget';
-export const version = '3.2.5';
+export const version = '3.2.6';
