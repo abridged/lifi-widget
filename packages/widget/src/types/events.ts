@@ -14,6 +14,7 @@ export enum WidgetEvent {
   ReviewTransactionPageEntered = 'reviewTransactionPageEntered',
   WalletConnected = 'walletConnected',
   OnSubmitFund = 'onSubmitFund',
+  OnChainCardExpanded = 'onChainCardExpanded',
 }
 
 export type WidgetEvents = {
@@ -29,12 +30,19 @@ export type WidgetEvents = {
   reviewTransactionPageEntered?: Route;
   walletConnected: WalletConnected;
   onSubmitFund: OnSubmitFund;
+  onChainCardExpanded: OnChainCardExpanded;
 };
 
 export interface OnSubmitFund {
   chain: Chain;
   amount: string;
 }
+
+export interface OnChainCardExpanded {
+  chain: Chain;
+  expanded: boolean;
+}
+
 export interface ContactSupport {
   supportId?: string;
 }

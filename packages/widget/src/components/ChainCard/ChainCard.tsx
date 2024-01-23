@@ -14,6 +14,7 @@ import { parseEther } from 'viem';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { useAvailableChains } from '@collabland/lifi-widget';
 import { TokenAvatar } from '../TokenAvatar';
+import { useWidgetEvents, WidgetEvent } from '@collabland/lifi-widget';
 
 export const ChainCard: React.FC<ChainCardProps> = ({
   chain,
@@ -47,6 +48,7 @@ export const ChainCard: React.FC<ChainCardProps> = ({
     return true;
   };
 
+  const emitter = useWidgetEvents();
   const chainDetail = chains?.find((c) => c.id === chain.id);
   return (
     <ChainContainer>
@@ -81,7 +83,13 @@ export const ChainCard: React.FC<ChainCardProps> = ({
       </Box>
       <Accordion
         expanded={expanded === chain.id}
-        onChange={handleExpandChange(chain.id)}
+        onChange={() => {
+          handleExpandChange(chain.id);
+          emitter.emit(WidgetEvent.OnChainCardExpanded, {
+            chain,
+            expanded: expanded === chain.id,
+          });
+        }}
       >
         <AccordionSummary
           aria-controls={`${chain.id}-content`}

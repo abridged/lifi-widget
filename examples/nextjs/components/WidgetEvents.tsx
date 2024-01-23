@@ -6,7 +6,6 @@ import type {
 } from '@collabland/lifi-widget';
 import { WidgetEvent, useWidgetEvents } from '@collabland/lifi-widget';
 import { useEffect } from 'react';
-import { OnSubmitFund } from '@collabland/lifi-widget/dist/_esm';
 
 export const WidgetEvents = () => {
   const widgetEvents = useWidgetEvents();
@@ -27,11 +26,6 @@ export const WidgetEvents = () => {
     const onRouteHighValueLoss = (update: RouteHighValueLossUpdate) => {
       console.log('onRouteHighValueLoss continued.');
     };
-
-    const onSubmitBridge = (update: OnSubmitFund) => {
-      console.log('onSubmitBridge continued.');
-    };
-    widgetEvents.on(WidgetEvent.OnSubmitFund, onSubmitBridge);
     widgetEvents.on(WidgetEvent.RouteExecutionStarted, onRouteExecutionStarted);
     widgetEvents.on(WidgetEvent.RouteExecutionUpdated, onRouteExecutionUpdated);
     widgetEvents.on(
