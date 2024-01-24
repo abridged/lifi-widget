@@ -24,7 +24,6 @@ export const SVMListItemButton = ({ wallet }: SVMListItemButtonProps) => {
     // We use autoConnect on wallet selection
     // await solanaConnect();
     wallet.adapter.once('connect', (publicKey) => {
-      console.log('SVM Wallet connected, emitting event', publicKey);
       emitter.emit(WidgetEvent.WalletConnected, {
         address: publicKey?.toString(),
         chainId: ChainId.SOL,
