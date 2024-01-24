@@ -3,12 +3,9 @@ export { App as LiFiWidget } from './App';
 export type { WidgetDrawer } from './AppDrawer';
 export * from './components/NFT';
 export * from './config/version';
-export {
-  useAccount,
-  useAvailableChains,
-  useWidgetEvents,
-  widgetEvents,
-} from './hooks';
+export * from './hooks';
+export * from './components/Header/WalletHeader';
+export * from './pages/SelectWalletPage';
 export * from './stores/form/types';
 export { formatChain } from './providers/WalletProvider';
 export * from './types';

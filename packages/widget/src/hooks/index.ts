@@ -31,3 +31,4 @@ export * from './useTools';
 export * from './useTransactionDetails';
 export * from './useTransactionHistory';
 export * from './useWidgetEvents';
+export * from './useCollabTransfer';
