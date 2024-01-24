@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/abridged/lifi-widget/compare/v3.2.1...v3.3.0) (2024-01-24)
+
+
+### Features
+
+* add event emit for retry and others ([#5](https://github.com/abridged/lifi-widget/issues/5)) ([21b66e5](https://github.com/abridged/lifi-widget/commit/21b66e5a642606f861785650ea4ea243660e995d))
+
+
+### Bug Fixes
+
+* exchange link issue ([75d897f](https://github.com/abridged/lifi-widget/commit/75d897f0c1ee284871f81bcd605a861ff50bacb2))
+
 ### [3.2.1](https://github.com/abridged/lifi-widget/compare/v3.2.0...v3.2.1) (2024-01-24)
 
 
