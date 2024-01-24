@@ -51,8 +51,7 @@ export default function TransactionDialog({
   onError,
 }: TransactionDialogProps) {
   const { transfer, status, tx, error, isLoading } = useTransfer();
-
-  let title = 'Bridging Account';
+  let title = quote ? 'Bridging Account' : 'Transfer';
   useEffect(() => {
     transfer(chain, amount, toSmartAccount, quote);
   }, []);
