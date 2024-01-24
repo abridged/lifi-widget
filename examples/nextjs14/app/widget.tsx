@@ -2,6 +2,7 @@
 import { LiFiWidget } from '@collabland/lifi-widget';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { WidgetEvents } from './WidgetEvents';
 export function Widget() {
   const [mounted, setMounted] = useState(false);
   const searchParams = useSearchParams();
@@ -13,6 +14,7 @@ export function Widget() {
   useEffect(() => setMounted(true), []);
   return (
     <main>
+      <WidgetEvents />
       {mounted && (
         <LiFiWidget
           config={{

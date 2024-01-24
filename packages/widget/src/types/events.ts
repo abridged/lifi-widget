@@ -15,6 +15,8 @@ export enum WidgetEvent {
   WalletConnected = 'walletConnected',
   OnSubmitFund = 'onSubmitFund',
   OnChainCardExpanded = 'onChainCardExpanded',
+  RetryTransaction = 'retryTransaction',
+  BridgeButtonClicked = 'bridgeButtonClicked',
 }
 
 export type WidgetEvents = {
@@ -31,6 +33,8 @@ export type WidgetEvents = {
   walletConnected: WalletConnected;
   onSubmitFund: OnSubmitFund;
   onChainCardExpanded: OnChainCardExpanded;
+  retryTransaction: RetryTransaction;
+  bridgeButtonClicked: BridgeButtonClicked;
 };
 
 export interface OnSubmitFund {
@@ -43,6 +47,16 @@ export interface OnChainCardExpanded {
   expanded: boolean;
 }
 
+export interface RetryTransaction {
+  chain: Chain;
+  amount: string;
+  toSmartAccount: string;
+  quote?: any;
+}
+
+export interface BridgeButtonClicked {
+  toSmartAccount: string;
+}
 export interface ContactSupport {
   supportId?: string;
 }

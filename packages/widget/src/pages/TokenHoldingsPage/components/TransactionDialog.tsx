@@ -18,6 +18,7 @@ import { TokenAvatar } from '../../../components/TokenAvatar';
 import { useChain } from '../../../hooks';
 import { formatDuration } from '../../../utils';
 import { getArbBalance } from '../../../utils/apis';
+import { useWidgetEvents, WidgetEvent } from '@collabland/lifi-widget';
 
 export interface TransactionDialogProps {
   chain: Chain;
@@ -51,12 +52,20 @@ export default function TransactionDialog({
   onError,
 }: TransactionDialogProps) {
   const { transfer, status, tx, error, isLoading } = useTransfer();
+  const emitter = useWidgetEvents();
+
   let title = quote ? 'Bridging Account' : 'Transfer';
   useEffect(() => {
     transfer(chain, amount, toSmartAccount, quote);
   }, []);
 
   const onRetry = async () => {
+    emitter.emit(WidgetEvent.RetryTransaction, {
+      chain,
+      amount,
+      toSmartAccount,
+      quote,
+    }); // Emitting the retry event with relevant data
     transfer(chain, amount, toSmartAccount, quote);
   };
   let content: ReactNode = <></>;

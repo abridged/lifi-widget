@@ -3,10 +3,15 @@ import { navigationRoutes } from '../../../utils';
 import { Box, Button, Typography } from '@mui/material';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import React from 'react';
+import { useWidgetEvents, WidgetEvent } from '@collabland/lifi-widget';
 
 export const AdvanceOptions = () => {
   const navigate = useNavigate();
+  const emitter = useWidgetEvents();
   const handleBridgeClick = () => {
+    emitter.emit(WidgetEvent.BridgeButtonClicked, {
+      toSmartAccount: '0x123', //temporary until we add the logic for toSmartAccount or pkp param here for the Bridge button
+    });
     navigate(navigationRoutes.bridgeHome);
   };
 
