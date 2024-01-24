@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/abridged/lifi-widget/compare/v3.2.0...v3.2.1) (2024-01-24)
+
+
+### Bug Fixes
+
+* expand emitter ([5cf8b53](https://github.com/abridged/lifi-widget/commit/5cf8b538e97c4495b76d94736120396645ebe5e3))
+
 ## [3.2.0](https://github.com/abridged/lifi-widget/compare/v3.1.8...v3.2.0) (2024-01-23)
 
 
