@@ -16,6 +16,7 @@ export enum WidgetEvent {
   OnSubmitFund = 'onSubmitFund',
   OnChainCardExpanded = 'onChainCardExpanded',
   RetryTransaction = 'retryTransaction',
+  BridgeButtonClicked = 'bridgeButtonClicked',
 }
 
 export type WidgetEvents = {
@@ -33,6 +34,7 @@ export type WidgetEvents = {
   onSubmitFund: OnSubmitFund;
   onChainCardExpanded: OnChainCardExpanded;
   retryTransaction: RetryTransaction;
+  bridgeButtonClicked: BridgeButtonClicked;
 };
 
 export interface OnSubmitFund {
@@ -50,6 +52,10 @@ export interface RetryTransaction {
   amount: string;
   toSmartAccount: string;
   quote?: any;
+}
+
+export interface BridgeButtonClicked {
+  toSmartAccount: string;
 }
 export interface ContactSupport {
   supportId?: string;
