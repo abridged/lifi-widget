@@ -5,8 +5,7 @@
   "type": "module",
   "packageManager": "yarn@4.0.2",
   "workspaces": [
-    "packages/*",
-    "examples/nextjs"
+    "packages/*"
   ],
   "scripts": {
     "start": "lerna run start",
