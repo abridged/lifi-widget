@@ -1,9 +1,7 @@
-import { getWalletClient, switchChain, getTransaction } from '@wagmi/core';
-import { TransactionReceipt } from '../utils/apis';
+import { getWalletClient, switchChain } from '@wagmi/core';
 import { useState } from 'react';
 import { useAccount } from '@collabland/lifi-widget';
 import { useConfig } from 'wagmi';
-import { getTransactionReceipt } from 'viem/actions';
 import { ethers } from 'ethers';
 import { arbitrum } from 'viem/chains';
 
@@ -55,11 +53,17 @@ export const useCollabTransfer = () => {
       setTx(txHash);
       setStatus(TransactionStatus.WAITING_TO_COMPLETE);
       const provider = ethers.getDefaultProvider(DefaultChain);
-      const transaction = await provider.getTransaction(txHash);
-      await transaction.wait();
 
-      setStatus(TransactionStatus.COMPLETED);
-      setIsLoading(false);
+      const transaction = await provider.getTransaction(txHash);
+      if (transaction) {
+        await transaction.wait();
+        setStatus(TransactionStatus.COMPLETED);
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        setStatus(TransactionStatus.FAILED);
+        setError('Error in getting transaction on provider');
+      }
     } catch (e) {
       setIsLoading(false);
       setStatus(TransactionStatus.FAILED);
