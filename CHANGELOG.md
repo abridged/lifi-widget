@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](https://github.com/abridged/lifi-widget/compare/v3.3.0...v3.3.1) (2024-01-25)
+
+
+### Bug Fixes
+
+* select wallet fix ([1d986fc](https://github.com/abridged/lifi-widget/commit/1d986fc5b8c45754bd057eebd7a5869ed59dcb05))
+
 ## [3.3.0](https://github.com/abridged/lifi-widget/compare/v3.2.1...v3.3.0) (2024-01-24)
 
 
