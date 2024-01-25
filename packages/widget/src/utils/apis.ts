@@ -7,7 +7,7 @@ export function getUserProfile() {
 }
 
 export function getUserSmartAccount() {
-  return httpClient(`telefrens/me/account`);
+  return httpClient(`telefrens/me/account?chainId=42161`);
 }
 
 export function getBalance(request: EthereumBalanceRequest) {
