@@ -11,10 +11,10 @@ import { SelectTokenPage } from './pages/SelectTokenPage';
 import { SelectWalletPage } from './pages/SelectWalletPage';
 import { SettingsPage } from './pages/SettingsPage';
 import { TransactionDetailsPage } from './pages/TransactionDetailsPage';
-import { TokenHoldingsPage } from './pages/TokenHoldingsPage';
 import { TransactionHistoryPage } from './pages/TransactionHistoryPage';
 import { TransactionPage } from './pages/TransactionPage';
 import { navigationRoutes } from './utils';
+import { TokenHoldingsPage } from './pages/TokenHoldingsPage';
 
 // SelectWalletPage should be accessible from every page and this handler helps avoid creating multiple paths.
 // Avoid using it for anything else, we need to come up with a better solution once we have one more page accessible from everywhere.
@@ -93,7 +93,7 @@ const routes: RouteObject[] = [
     element: <TransactionPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/*`,
+    path: '*',
     element: <NotFoundRouteHandler />,
   },
 ];
