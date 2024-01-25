@@ -113,7 +113,7 @@
       "deleteActiveTransactions": "Delete all active transactions?",
       "deleteTransaction": "Delete this transaction?",
       "deleteTransactionHistory": "Delete transaction history?",
-      "highValueLoss": "High value loss",
+      "highValueLoss": "High gas prices",
       "insufficientGas": "Insufficient gas",
       "rateChanged": "Rate changed",
       "resetSettings": "Reset settings?"
