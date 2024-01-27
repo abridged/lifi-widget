@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/abridged/lifi-widget/compare/v3.3.1...v3.3.2) (2024-01-27)
+
+
+### Bug Fixes
+
+* enforce mainnet account ([d1d3aef](https://github.com/abridged/lifi-widget/commit/d1d3aef190e96a365877974c57873ce11c4cedbb))
+
 ### [3.3.1](https://github.com/abridged/lifi-widget/compare/v3.3.0...v3.3.1) (2024-01-25)
 
 
