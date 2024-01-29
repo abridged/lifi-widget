@@ -30,7 +30,13 @@ export const useCollabTransfer = () => {
 
   const DefaultChain = arbitrum.id;
 
-  const transfer = async (transactionRequest: any) => {
+  const transfer = async (
+    transactionRequest: any,
+  ): Promise<{
+    status: TransactionStatus;
+    tx?: string;
+    chainId?: number;
+  }> => {
     setIsLoading(true);
     setStatus(TransactionStatus.NOT_STARTED);
     const currentChain = account.chainId;
@@ -59,10 +65,18 @@ export const useCollabTransfer = () => {
         await transaction.wait();
         setStatus(TransactionStatus.COMPLETED);
         setIsLoading(false);
+        return {
+          status: TransactionStatus.COMPLETED,
+          tx: txHash,
+          chainId: DefaultChain,
+        };
       } else {
         setIsLoading(false);
         setStatus(TransactionStatus.FAILED);
         setError('Error in getting transaction on provider');
+        return {
+          status: TransactionStatus.FAILED,
+        };
       }
     } catch (e) {
       setIsLoading(false);
@@ -70,6 +84,9 @@ export const useCollabTransfer = () => {
       console.error(e);
       // @ts-ignore
       setError(e.details ?? e.message);
+      return {
+        status: TransactionStatus.FAILED,
+      };
     }
   };
   return {
