@@ -1,5 +1,8 @@
 import { ChainType } from '@lifi/sdk';
-import { getWalletIcon, isWalletInstalledAsync } from '@collabland/lifi-wallet-management';
+import {
+  getWalletIcon,
+  isWalletInstalledAsync,
+} from '@collabland/lifi-wallet-management';
 import { Avatar, ListItemAvatar } from '@mui/material';
 import type { Connector } from 'wagmi';
 import { useConnect, useDisconnect } from 'wagmi';
@@ -33,18 +36,13 @@ export const EVMListItemButton = ({
     if (connectedConnector) {
       await disconnectAsync({ connector: connectedConnector });
     }
-    await connectAsync(
-      { connector },
-      {
-        onSuccess(data) {
-          emitter.emit(WidgetEvent.WalletConnected, {
-            address: data.accounts[0],
-            chainId: data.chainId,
-            chainType: ChainType.EVM,
-          });
-        },
-      },
-    );
+    await connectAsync({ connector }).then((data) => {
+      emitter.emit(WidgetEvent.WalletConnected, {
+        address: data.accounts[0],
+        chainId: data.chainId,
+        chainType: ChainType.EVM,
+      });
+    });
     navigateBack();
   };
 
