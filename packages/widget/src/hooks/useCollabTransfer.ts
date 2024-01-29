@@ -58,26 +58,26 @@ export const useCollabTransfer = () => {
       const txHash = await client.sendTransaction(transactionRequest);
       setTx(txHash);
       setStatus(TransactionStatus.WAITING_TO_COMPLETE);
-      const provider = ethers.getDefaultProvider(DefaultChain);
+      // const provider = ethers.getDefaultProvider(DefaultChain);
 
-      const transaction = await provider.getTransaction(txHash);
-      if (transaction) {
-        await transaction.wait();
-        setStatus(TransactionStatus.COMPLETED);
-        setIsLoading(false);
-        return {
-          status: TransactionStatus.COMPLETED,
-          tx: txHash,
-          chainId: DefaultChain,
-        };
-      } else {
-        setIsLoading(false);
-        setStatus(TransactionStatus.FAILED);
-        setError('Error in getting transaction on provider');
-        return {
-          status: TransactionStatus.FAILED,
-        };
-      }
+      // const transaction = await provider.getTransaction(txHash);
+      // if (transaction) {
+      //   await transaction.wait();
+      setStatus(TransactionStatus.COMPLETED);
+      setIsLoading(false);
+      return {
+        status: TransactionStatus.COMPLETED,
+        tx: txHash,
+        chainId: DefaultChain,
+      };
+      // } else {
+      //   setIsLoading(false);
+      //   setStatus(TransactionStatus.FAILED);
+      //   setError('Error in getting transaction on provider');
+      //   return {
+      //     status: TransactionStatus.FAILED,
+      //   };
+      // }
     } catch (e) {
       setIsLoading(false);
       setStatus(TransactionStatus.FAILED);
