@@ -69,7 +69,17 @@ export async function waitForTransaction(
   success: boolean;
   link: string;
 }> {
-  return httpClient(`ethereum/transactions/${chainId}/${txHash}`);
+  return httpClient(
+    `ethereum/transactions/${chainId}/${txHash}`,
+    {
+      headers: {
+        'x-api-key': process.env.NEXT_PUBLIC_COLLAB_LAND_API_KEY || '',
+        'Content-Type': 'application/json',
+      },
+    },
+    undefined,
+    true,
+  );
 }
 
 export const getArbBalance = () => {

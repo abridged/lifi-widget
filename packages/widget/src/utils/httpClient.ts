@@ -4,18 +4,20 @@ export default async function httpClient(
   url: string,
   options: RequestInit = {},
   baseUrl?: string,
+  accessTokenNotAllowed?: boolean,
 ) {
-  const accessToken = localStorage.getItem('accessToken');
-  if (!accessToken) {
-    throw Error('No access token');
+  if (!accessTokenNotAllowed) {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      throw Error('No access token');
+    }
+    options.headers = {
+      ...defaultHeaders,
+      authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+      ...(options.headers || {}),
+    };
   }
-  options.headers = {
-    ...defaultHeaders,
-    authorization: `Bearer ${accessToken}`,
-    'Content-Type': 'application/json',
-    ...(options.headers || {}),
-  };
-
   const response = await fetch(
     `${baseUrl ?? process.env.NEXT_PUBLIC_API_URL}/${url}`,
     options,
