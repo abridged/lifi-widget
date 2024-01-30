@@ -2,8 +2,8 @@ import { getWalletClient, switchChain } from '@wagmi/core';
 import { useState } from 'react';
 import { useAccount } from '@collabland/lifi-widget';
 import { useConfig } from 'wagmi';
-import { ethers } from 'ethers';
 import { arbitrum } from 'viem/chains';
+import { waitForTransaction } from '@collabland/lifi-widget/utils/apis';
 
 export enum TransactionStatus {
   NOT_STARTED,
@@ -17,6 +17,23 @@ export enum TransactionStatus {
 export function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+const waitForStatus = async (chainId: string, hash: string) => {
+  let complete:
+    | {
+        success: boolean;
+        link: string;
+      }
+    | undefined;
+  do {
+    const receipt = await waitForTransaction(chainId, hash);
+    if (receipt?.success) {
+      complete = receipt;
+    }
+    await delay(2000);
+  } while (!complete);
+  return complete;
+};
 
 export const useCollabTransfer = () => {
   const { account } = useAccount();
@@ -36,6 +53,7 @@ export const useCollabTransfer = () => {
     status: TransactionStatus;
     tx?: string;
     chainId?: number;
+    link?: string;
   }> => {
     setIsLoading(true);
     setStatus(TransactionStatus.NOT_STARTED);
@@ -58,26 +76,24 @@ export const useCollabTransfer = () => {
       const txHash = await client.sendTransaction(transactionRequest);
       setTx(txHash);
       setStatus(TransactionStatus.WAITING_TO_COMPLETE);
-      // const provider = ethers.getDefaultProvider(DefaultChain);
-
-      // const transaction = await provider.getTransaction(txHash);
-      // if (transaction) {
-      //   await transaction.wait();
-      setStatus(TransactionStatus.COMPLETED);
-      setIsLoading(false);
-      return {
-        status: TransactionStatus.COMPLETED,
-        tx: txHash,
-        chainId: DefaultChain,
-      };
-      // } else {
-      //   setIsLoading(false);
-      //   setStatus(TransactionStatus.FAILED);
-      //   setError('Error in getting transaction on provider');
-      //   return {
-      //     status: TransactionStatus.FAILED,
-      //   };
-      // }
+      const receipt = await waitForStatus('arbitrum', txHash);
+      if (receipt.success) {
+        setStatus(TransactionStatus.COMPLETED);
+        setIsLoading(false);
+        return {
+          status: TransactionStatus.COMPLETED,
+          tx: txHash,
+          chainId: DefaultChain,
+          link: receipt.link,
+        };
+      } else {
+        setIsLoading(false);
+        setStatus(TransactionStatus.FAILED);
+        setError('Error in getting transaction on provider');
+        return {
+          status: TransactionStatus.FAILED,
+        };
+      }
     } catch (e) {
       setIsLoading(false);
       setStatus(TransactionStatus.FAILED);

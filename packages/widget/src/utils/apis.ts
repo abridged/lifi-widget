@@ -62,6 +62,16 @@ export async function waitForTx(txObj: {
   });
 }
 
+export async function waitForTransaction(
+  chainId: string,
+  txHash: string,
+): Promise<{
+  success: boolean;
+  link: string;
+}> {
+  return httpClient(`ethereum/transactions/${chainId}/${txHash}`);
+}
+
 export const getArbBalance = () => {
   return httpClient(`telefrens/get-account-balance`);
 };
