@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useAccount } from '@collabland/lifi-widget';
 import { useConfig } from 'wagmi';
 import { arbitrum } from 'viem/chains';
-import { waitForTransaction } from '@collabland/lifi-widget/utils/apis';
+import { waitForTransaction } from '../utils/apis';
 
 export enum TransactionStatus {
   NOT_STARTED,
