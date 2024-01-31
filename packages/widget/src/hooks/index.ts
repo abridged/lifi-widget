@@ -32,3 +32,4 @@ export * from './useTransactionDetails';
 export * from './useTransactionHistory';
 export * from './useWidgetEvents';
 export * from './useCollabTransfer';
+export * from './useSwitchChain';
