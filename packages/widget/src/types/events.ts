@@ -1,5 +1,4 @@
 import type { ChainId, ChainType, Process, Route } from '@lifi/sdk';
-import { Chain } from '@collabland/lifi-widget/types/types';
 
 export enum WidgetEvent {
   RouteExecutionStarted = 'routeExecutionStarted',
@@ -38,17 +37,17 @@ export type WidgetEvents = {
 };
 
 export interface OnSubmitFund {
-  chain: Chain;
+  chain: any;
   amount: string;
 }
 
 export interface OnChainCardExpanded {
-  chain: Chain;
+  chain: any;
   expanded: boolean;
 }
 
 export interface RetryTransaction {
-  chain: Chain;
+  chain: any;
   amount: string;
   toSmartAccount: string;
   quote?: any;

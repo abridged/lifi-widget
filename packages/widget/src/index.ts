@@ -1,3 +1,4 @@
+export { useConfig } from 'wagmi';
 export { useFieldActions, useFieldValues } from './stores';
 export { App as LiFiWidget } from './App';
 export type { WidgetDrawer } from './AppDrawer';
@@ -10,6 +11,7 @@ export * from './stores/form/types';
 export { formatChain } from './providers/WalletProvider';
 export * from './types';
 export * from './AppProvider';
+
 // ClassNameGenerator.configure((componentName) =>
 //   componentName.replace('Mui', 'LiFi'),
 // );

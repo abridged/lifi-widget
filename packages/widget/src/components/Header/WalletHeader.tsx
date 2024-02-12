@@ -24,10 +24,10 @@ import { WalletMenuContainer } from './WalletMenu.style';
 
 export const WalletHeader: React.FC = () => {
   const { subvariant, hiddenUI } = useWidgetConfig();
-  const { hasExternalProvider } = useHasExternalWalletProvider();
-  return !hasExternalProvider &&
-    subvariant !== 'split' &&
-    !hiddenUI?.includes(HiddenUI.WalletMenu) ? (
+  // const { hasExternalProvider } = useHasExternalWalletProvider();
+  // console.log(hasExternalProvider, subvariant, hiddenUI);
+  // return !hasExternalProvider &&
+  return subvariant !== 'split' && !hiddenUI?.includes(HiddenUI.WalletMenu) ? (
     <HeaderAppBar elevation={0} sx={{ justifyContent: 'center' }}>
       <WalletMenuButton />
     </HeaderAppBar>

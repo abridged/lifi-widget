@@ -36,8 +36,6 @@ export const NavigationHeader: React.FC = () => {
 
   const handleHeaderTitle = () => {
     switch (path) {
-      case '':
-        return t(`header.transferOptions`);
       case navigationRoutes.selectWallet:
         return t(`header.selectWallet`);
       case navigationRoutes.settings:

@@ -14,7 +14,6 @@ import { TransactionDetailsPage } from './pages/TransactionDetailsPage';
 import { TransactionHistoryPage } from './pages/TransactionHistoryPage';
 import { TransactionPage } from './pages/TransactionPage';
 import { navigationRoutes } from './utils';
-import { TokenHoldingsPage } from './pages/TokenHoldingsPage';
 
 // SelectWalletPage should be accessible from every page and this handler helps avoid creating multiple paths.
 // Avoid using it for anything else, we need to come up with a better solution once we have one more page accessible from everywhere.
@@ -30,66 +29,62 @@ const NotFoundRouteHandler = () => {
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <TokenHoldingsPage />,
-  },
-  {
-    path: navigationRoutes.bridgeHome,
     element: <MainPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.settings}`,
+    path: navigationRoutes.settings,
     element: <SettingsPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.settings}/${navigationRoutes.bridges}`,
+    path: `${navigationRoutes.settings}/${navigationRoutes.bridges}`,
     element: <SelectEnabledToolsPage type="Bridges" />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.settings}/${navigationRoutes.exchanges}`,
+    path: `${navigationRoutes.settings}/${navigationRoutes.exchanges}`,
     element: <SelectEnabledToolsPage type="Exchanges" />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.settings}/${navigationRoutes.languages}`,
+    path: `${navigationRoutes.settings}/${navigationRoutes.languages}`,
     element: <LanguagesPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.fromToken}`,
+    path: navigationRoutes.fromToken,
     element: <SelectTokenPage formType="from" />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.toToken}`,
+    path: navigationRoutes.toToken,
     element: <SelectTokenPage formType="to" />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.toTokenNative}`,
+    path: navigationRoutes.toTokenNative,
     element: <SelectChainPage formType="to" selectNativeToken />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.fromToken}?/${navigationRoutes.fromChain}`,
+    path: `${navigationRoutes.fromToken}?/${navigationRoutes.fromChain}`,
     element: <SelectChainPage formType="from" />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.toToken}?/${navigationRoutes.toChain}`,
+    path: `${navigationRoutes.toToken}?/${navigationRoutes.toChain}`,
     element: <SelectChainPage formType="to" />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.routes}`,
+    path: navigationRoutes.routes,
     element: <RoutesPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.activeTransactions}`,
+    path: navigationRoutes.activeTransactions,
     element: <ActiveTransactionsPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.transactionHistory}`,
+    path: navigationRoutes.transactionHistory,
     element: <TransactionHistoryPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.transactionHistory}?/${navigationRoutes.routes}?/${navigationRoutes.transactionExecution}?/${navigationRoutes.transactionDetails}`,
+    path: `${navigationRoutes.transactionHistory}?/${navigationRoutes.routes}?/${navigationRoutes.transactionExecution}?/${navigationRoutes.transactionDetails}`,
     element: <TransactionDetailsPage />,
   },
   {
-    path: `${navigationRoutes.bridgeHome}/${navigationRoutes.routes}?/${navigationRoutes.activeTransactions}?/${navigationRoutes.transactionExecution}`,
+    path: `${navigationRoutes.routes}?/${navigationRoutes.activeTransactions}?/${navigationRoutes.transactionExecution}`,
     element: <TransactionPage />,
   },
   {

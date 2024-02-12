@@ -3,8 +3,27 @@ import { useState } from 'react';
 import { useAccount } from '@collabland/lifi-widget';
 import { useConfig } from 'wagmi';
 import { arbitrum } from 'viem/chains';
-import { waitForTransaction } from '../utils/apis';
+import httpClient from '../utils/httpClient';
 
+export async function waitForTransaction(
+  chainId: string,
+  txHash: string,
+): Promise<{
+  success: boolean;
+  link: string;
+}> {
+  return httpClient(
+    `ethereum/transactions/${chainId}/${txHash}`,
+    {
+      headers: {
+        'x-api-key': process.env.NEXT_PUBLIC_COLLAB_LAND_API_KEY || '',
+        'Content-Type': 'application/json',
+      },
+    },
+    undefined,
+    true,
+  );
+}
 export enum TransactionStatus {
   NOT_STARTED,
   WAITING_TO_SWITCH,
